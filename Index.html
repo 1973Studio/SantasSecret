@@ -473,329 +473,150 @@
         </div>
     </footer>
 <script>
-  // Mobile-Optimized Snow System
-  class MobileOptimizedSnowSystem {
+  // Simplified Mobile-Compatible Snow System
+  class SimpleSnowSystem {
     constructor() {
       this.canvas = document.getElementById('snowCanvas');
+      if (!this.canvas) {
+        console.error('Snow canvas not found');
+        return;
+      }
+      
       this.ctx = this.canvas.getContext('2d');
       this.snowflakes = [];
-      this.isSnowing = false;
-      this.currentColorIndex = 0;
+      this.isSnowing = true; // Always start with snow on
       this.animationId = null;
       
-      // Mobile detection and optimization
-      this.isMobile = this.detectMobile();
-      this.maxSnowflakes = this.isMobile ? 37 : 50; // 37 for mobile as requested
-      this.animationThrottle = this.isMobile ? 2 : 1; // Skip frames on mobile
-      this.frameSkip = 0;
+      // Mobile detection
+      this.isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      this.maxSnowflakes = this.isMobile ? 25 : 50; // Reduced for better mobile performance
       
-      this.colors = [
-        { name: 'Blue', rgba: '25,118,210', class: 'color-blue' },
-        { name: 'White', rgba: '255,255,255', class: 'color-white' },
-        { name: 'Gold', rgba: '251,191,36', class: 'color-gold' },
-        { name: 'Silver', rgba: '156,163,175', class: 'color-silver' },
-        { name: 'Pink', rgba: '236,72,153', class: 'color-pink' }
-      ];
+      console.log('Snow system initializing - Mobile:', this.isMobile);
       this.init();
-    }
-
-    detectMobile() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const isSmallScreen = window.innerWidth <= 768;
-      
-      return isMobileUA || isTouchDevice || isSmallScreen;
     }
 
     init() {
       this.resizeCanvas();
-      this.loadPreferences();
-      this.setupEventListeners();
+      this.startSnow();
       
       window.addEventListener('resize', () => {
         this.resizeCanvas();
       });
       
-      // Handle orientation change on mobile
-      if (this.isMobile) {
-        window.addEventListener('orientationchange', () => {
-          setTimeout(() => {
-            this.resizeCanvas();
-            this.restartSnow();
-          }, 100);
-        });
-      }
-      
-      // Handle page visibility changes (mobile browser switching)
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          this.pauseSnow();
-        } else if (this.isSnowing) {
-          this.resumeSnow();
-        }
+      // Simplified orientation change handling
+      window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+          this.resizeCanvas();
+          this.restartSnow();
+        }, 500);
       });
     }
 
     resizeCanvas() {
-      // Get actual viewport dimensions
-      const dpr = window.devicePixelRatio || 1;
-      
-      // Set canvas size with device pixel ratio for crisp rendering
-      this.canvas.width = window.innerWidth * dpr;
-      this.canvas.height = window.innerHeight * dpr;
-      
-      // Scale context back down
-      this.ctx.scale(dpr, dpr);
-      
-      // Set CSS size
+      // Simple canvas sizing
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
       this.canvas.style.width = window.innerWidth + 'px';
       this.canvas.style.height = window.innerHeight + 'px';
     }
 
-    loadPreferences() {
-      const savedSnowing = localStorage.getItem('snowEnabled');
-      const savedColorIndex = localStorage.getItem('snowColorIndex');
-      const isFirstVisit = savedSnowing === null;
-
-      if (isFirstVisit) {
-        this.isSnowing = true;
-        this.currentColorIndex = 1;
-        localStorage.setItem('snowEnabled', 'true');
-        localStorage.setItem('snowColorIndex', '1');
-      } else {
-        this.isSnowing = savedSnowing === 'true';
-        this.currentColorIndex = savedColorIndex ? parseInt(savedColorIndex) : 1;
-      }
-
-      if (this.isSnowing) {
-        // Start with fewer snowflakes for better initial performance
-        const initialCount = Math.min(this.maxSnowflakes / 2, 15);
-        for (let i = 0; i < initialCount; i++) {
-          this.snowflakes.push(this.createSnowflake());
-        }
-        this.animate();
-      }
-      this.updateUI();
-    }
-
-    setupEventListeners() {
-      this.setupControlEvents('snowToggle', '');
-      this.setupControlEvents('snowToggleMobile', 'Mobile');
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.snow-controls-desktop') && !e.target.closest('.snow-controls-mobile')) {
-          document.getElementById('colorMenu').classList.remove('show');
-          document.getElementById('colorMenuMobile').classList.remove('show');
-        }
-      });
-    }
-
-    setupControlEvents(toggleId, suffix) {
-      const toggleBtn = document.getElementById(toggleId);
-      const colorPicker = document.getElementById(`colorPicker${suffix}`);
-      const colorMenu = document.getElementById(`colorMenu${suffix}`);
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => this.toggleSnow());
-      }
-      if (colorPicker) {
-        colorPicker.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.toggleColorMenu(suffix);
-        });
-      }
-      if (colorMenu) {
-        const colorOptions = colorMenu.querySelectorAll('.color-option');
-        colorOptions.forEach((option, index) => {
-          option.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.changeSnowColor(index);
-          });
-        });
-      }
-    }
-
     createSnowflake() {
-      const heroSection = document.querySelector('#home');
-      const heroRect = heroSection.getBoundingClientRect();
-      const heroTop = heroRect.top + window.scrollY;
-      
-      const size = this.isMobile ? 
-        Math.random() * 2 + 1 : // Smaller on mobile
-        Math.random() * 3 + 1;
-        
       return {
         x: Math.random() * window.innerWidth,
-        y: heroTop - 10, // Start at the top of hero section
-        radius: size,
-        speed: Math.random() * 1.5 + 0.5, // Slower on mobile
-        drift: (Math.random() - 0.5) * 1, // Less drift on mobile
-        opacity: Math.random() * 0.6 + 0.4,
-        // Pre-calculate color for performance
-        color: `rgba(${this.colors[this.currentColorIndex].rgba}, ${Math.random() * 0.6 + 0.4})`
+        y: -10,
+        radius: Math.random() * 3 + 1,
+        speed: Math.random() * 2 + 1,
+        drift: (Math.random() - 0.5) * 2,
+        opacity: Math.random() * 0.8 + 0.2
       };
     }
 
-    animate(currentTime = 0) {
+    animate() {
       if (!this.isSnowing) return;
 
-      // Frame throttling for mobile
-      if (this.isMobile) {
-        this.frameSkip++;
-        if (this.frameSkip < this.animationThrottle) {
-          this.animationId = requestAnimationFrame((time) => this.animate(time));
-          return;
-        }
-        this.frameSkip = 0;
-      }
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
+      // Get hero section bounds
       const heroSection = document.querySelector('#home');
+      if (!heroSection) {
+        this.animationId = requestAnimationFrame(() => this.animate());
+        return;
+      }
+      
       const heroRect = heroSection.getBoundingClientRect();
-      const heroHeight = heroRect.height;
       const heroTop = heroRect.top + window.scrollY;
+      const heroBottom = heroTop + heroRect.height;
 
+      // Update and draw snowflakes
       for (let i = this.snowflakes.length - 1; i >= 0; i--) {
         const flake = this.snowflakes[i];
+        
+        // Update position
         flake.y += flake.speed;
         flake.x += flake.drift;
 
-        // Only draw snowflakes within the hero section bounds
-        if (flake.y >= heroTop && flake.y <= heroTop + heroHeight && 
-            flake.x >= 0 && flake.x <= window.innerWidth) {
+        // Only draw if within hero section
+        const screenY = flake.y - window.scrollY;
+        if (screenY >= 0 && screenY <= heroRect.height && flake.x >= 0 && flake.x <= window.innerWidth) {
           this.ctx.beginPath();
-          this.ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-          this.ctx.fillStyle = flake.color;
+          this.ctx.arc(flake.x, screenY, flake.radius, 0, Math.PI * 2);
+          this.ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
           this.ctx.fill();
         }
 
-        // Remove snowflakes that go beyond the hero section or off screen
-        if (flake.y > heroTop + heroHeight || flake.x < -10 || flake.x > window.innerWidth + 10) {
+        // Remove snowflakes that are out of bounds
+        if (flake.y > heroBottom || flake.x < -50 || flake.x > window.innerWidth + 50) {
           this.snowflakes.splice(i, 1);
         }
       }
 
-      // Add new snowflakes less frequently on mobile
-      const addChance = this.isMobile ? 0.1 : 0.3;
-      if (Math.random() < addChance && this.snowflakes.length < this.maxSnowflakes) {
+      // Add new snowflakes
+      if (this.snowflakes.length < this.maxSnowflakes && Math.random() < 0.3) {
+        const newFlake = this.createSnowflake();
+        newFlake.y = heroTop - 10;
+        this.snowflakes.push(newFlake);
+      }
+
+      this.animationId = requestAnimationFrame(() => this.animate());
+    }
+
+    startSnow() {
+      console.log('Starting snow animation');
+      this.isSnowing = true;
+      
+      // Create initial snowflakes
+      for (let i = 0; i < Math.min(20, this.maxSnowflakes); i++) {
         this.snowflakes.push(this.createSnowflake());
       }
-
-      this.animationId = requestAnimationFrame((time) => this.animate(time));
-    }
-
-    toggleSnow() {
-      this.isSnowing = !this.isSnowing;
-      localStorage.setItem('snowEnabled', this.isSnowing.toString());
-      if (this.isSnowing) {
-        // Start with fewer snowflakes for better performance
-        const initialCount = Math.min(this.maxSnowflakes / 2, 15);
-        for (let i = 0; i < initialCount; i++) {
-          this.snowflakes.push(this.createSnowflake());
-        }
-        this.animate();
-      } else {
-        this.snowflakes = [];
-        if (this.animationId) cancelAnimationFrame(this.animationId);
-        this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      }
-      this.updateUI();
-    }
-
-    changeSnowColor(colorIndex) {
-      this.currentColorIndex = colorIndex;
-      localStorage.setItem('snowColorIndex', colorIndex.toString());
       
-      // Update existing snowflakes with new color
-      this.snowflakes.forEach(flake => {
-        const opacity = flake.opacity;
-        flake.color = `rgba(${this.colors[this.currentColorIndex].rgba}, ${opacity})`;
-      });
-      
-      this.updateUI();
-      document.getElementById('colorMenu').classList.remove('show');
-      document.getElementById('colorMenuMobile').classList.remove('show');
+      this.animate();
     }
 
-    toggleColorMenu(suffix = '') {
-      const menu = document.getElementById(`colorMenu${suffix}`);
-      if (menu) menu.classList.toggle('show');
+    restartSnow() {
+      this.stopSnow();
+      setTimeout(() => {
+        this.startSnow();
+      }, 100);
     }
 
-    pauseSnow() {
+    stopSnow() {
+      this.isSnowing = false;
+      this.snowflakes = [];
       if (this.animationId) {
         cancelAnimationFrame(this.animationId);
         this.animationId = null;
       }
-    }
-
-    resumeSnow() {
-      if (this.isSnowing && !this.animationId) {
-        this.animate();
-      }
-    }
-
-    restartSnow() {
-      this.pauseSnow();
-      this.snowflakes = [];
-      setTimeout(() => {
-        if (this.isSnowing) {
-          const initialCount = Math.min(this.maxSnowflakes / 2, 15);
-          for (let i = 0; i < initialCount; i++) {
-            this.snowflakes.push(this.createSnowflake());
-          }
-          this.animate();
-        }
-      }, 100);
-    }
-
-    updateUI() {
-      this.updateControlUI('');
-      this.updateControlUI('Mobile');
-    }
-
-    updateControlUI(suffix) {
-      const toggleBtn = document.getElementById(`snowToggle${suffix}`);
-      const toggleText = document.getElementById(`snowToggleText${suffix}`);
-      const colorPicker = document.getElementById(`colorPicker${suffix}`);
-      const currentColorDot = document.getElementById(`currentColorDot${suffix}`);
-      const currentColorText = document.getElementById(`currentColorText${suffix}`);
-      const colorMenu = document.getElementById(`colorMenu${suffix}`);
-
-      if (!toggleBtn) return;
-
-      if (this.isSnowing) {
-        toggleBtn.classList.add('active');
-        if (toggleText) toggleText.textContent = 'Snow On';
-        if (colorPicker) colorPicker.style.display = 'flex';
-      } else {
-        toggleBtn.classList.remove('active');
-        if (toggleText) toggleText.textContent = 'Snow Off';
-        if (colorPicker) colorPicker.style.display = 'none';
-      }
-
-      const currentColor = this.colors[this.currentColorIndex];
-      if (currentColorDot) currentColorDot.className = `color-dot ${currentColor.class}`;
-      if (currentColorText) currentColorText.textContent = currentColor.name;
-
-      if (colorMenu) {
-        const colorOptions = colorMenu.querySelectorAll('.color-option');
-        colorOptions.forEach((option, index) => {
-          const checkIcon = option.querySelector('.fas.fa-check');
-          if (index === this.currentColorIndex) {
-            option.classList.add('active');
-            if (checkIcon) checkIcon.style.display = 'block';
-          } else {
-            option.classList.remove('active');
-            if (checkIcon) checkIcon.style.display = 'none';
-          }
-        });
-      }
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    new MobileOptimizedSnowSystem();
+    // Initialize snow system
+    console.log('DOM loaded, initializing snow');
+    const snowSystem = new SimpleSnowSystem();
+    
+    // Make it globally accessible for debugging
+    window.snowSystem = snowSystem;
 
     // Countdown functionality
     const daysEl = document.getElementById('days');
