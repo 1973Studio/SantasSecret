@@ -524,7 +524,7 @@
       return {
         x: Math.random() * window.innerWidth,
         y: -10,
-        radius: Math.random() * 3 + 1,
+        radius: this.isMobile ? Math.random() * 4 + 2 : Math.random() * 3 + 1, // Bigger on mobile: 2-6px vs 1-4px on desktop
         speed: Math.random() * 2 + 1,
         drift: (Math.random() - 0.5) * 2,
         opacity: Math.random() * 0.8 + 0.2
