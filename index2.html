@@ -1508,10 +1508,15 @@
             startCountdown();
 
             // Mobile menu toggle
-            document.querySelector('.md\\:hidden').addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobileMenu');
-                mobileMenu.classList.toggle('hidden');
-            });
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu) {
+                        mobileMenu.classList.toggle('hidden');
+                    }
+                });
+            }
 
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1527,7 +1532,7 @@
                     
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobileMenu');
-                    if (!mobileMenu.classList.contains('hidden')) {
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 });
@@ -1536,10 +1541,12 @@
             // Add scroll-based navigation background
             window.addEventListener('scroll', function() {
                 const nav = document.querySelector('nav');
-                if (window.scrollY > 100) {
-                    nav.classList.add('shadow-lg');
-                } else {
-                    nav.classList.remove('shadow-lg');
+                if (nav) {
+                    if (window.scrollY > 100) {
+                        nav.classList.add('shadow-lg');
+                    } else {
+                        nav.classList.remove('shadow-lg');
+                    }
                 }
             });
         });
