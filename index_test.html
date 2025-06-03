@@ -665,15 +665,15 @@
 
     <!-- Navigation -->
     <nav class="nav-glass sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-2">
-            <div class="flex justify-between items-start">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <a href="#" class="w-16 h-16 flex items-center justify-center rounded-lg shadow-sm">
+                    <a href="#" class="w-24 h-24 flex items-center justify-center rounded-lg shadow-sm">
                         <img src="https://santasecret.com.au/SantaLogo_whitebg.webp" alt="Santa's Secret Logo" class="w-full h-full object-contain">
                     </a>
                 </div>
 
-                <div class="hidden md:flex space-x-8 pt-4">
+                <div class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link text-gray-800 hover:text-red-600">Home</a>
                     <a href="#about" class="nav-link text-gray-800 hover:text-red-600">About</a>
                     <a href="#countdown" class="nav-link text-gray-800 hover:text-red-600">Countdown</a>
@@ -681,7 +681,7 @@
                     <a href="#visitus" class="nav-link text-gray-800 hover:text-red-600">Visit Us</a>
                 </div>
 
-                <div class="flex items-center space-x-4 pt-4">
+                <div class="flex items-center space-x-4">
                     <button class="md:hidden focus:outline-none text-gray-800">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
@@ -783,16 +783,61 @@
                     <div class="bg-gradient-to-r from-red-50 to-green-50 p-6 rounded-2xl border-l-4 border-red-500">
                         <p class="font-semibold text-gray-900 text-lg">Ready to bring some magic into your home?</p>
                         <p class="text-gray-700 mt-2">Step into Santa's Secret and make this Christmas unforgettable with decor as unique as you are.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Beautiful Featured Image -->
+               <!-- Beautiful Featured Image -->
             <div class="order-1 md:order-2 flex justify-center items-center">
                 <div class="featured-image-container">
                     <img src="https://santasecret.com.au/ss3.webp" 
                          alt="Kim's Beautiful Christmas Workshop Display" 
                          class="featured-workshop-image">
+                </div>
+            </div>
+
+            <!-- Enhanced Vintage Christmas Stamps Collection -->
+            <div class="order-1 md:order-2 flex justify-center items-center">
+                <div class="stamps-collection">
+                    <!-- Stamp 1 -->
+                    <div class="vintage-stamp" onclick="openLightbox('https://santasecret.com.au/ss1.webp', 'Kim\\'s Christmas Creation - Handcrafted Ornaments')">>
+                        <img src="https://santasecret.com.au/ss1.webp" 
+                             alt="Kim's Christmas Creation" 
+                             class="vintage-stamp-image">
+                        <div class="vintage-stamp-footer">
+                            <div class="vintage-stamp-price">5¢</div>
+                            <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
+                        </div>
+                    </div>
+
+                    <!-- Stamp 2 -->
+                    <div class="vintage-stamp" onclick="openLightbox('https://santasecret.com.au/ss3.webp', 'Festive Workshop Display - Bespoke Christmas Decorations')">
+                        <img src="https://santasecret.com.au/ss3.webp" 
+                             alt="Kim's Christmas Creation" 
+                             class="vintage-stamp-image">
+                        <div class="vintage-stamp-footer">
+                            <div class="vintage-stamp-price">5¢</div>
+                            <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
+                        </div>
+                    </div>
+
+                    <!-- Stamp 3 -->
+                    <div class="vintage-stamp" onclick="openLightbox('https://santasecret.com.au/ss6.webp', 'Custom Holiday Arrangements - Unique Christmas Trees')">
+                        <img src="https://santasecret.com.au/ss6.webp" 
+                             alt="Kim's Christmas Creation" 
+                             class="vintage-stamp-image">
+                        <div class="vintage-stamp-footer">
+                            <div class="vintage-stamp-price">5¢</div>
+                            <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
+                        </div>
+                    </div>
+
+                    <!-- Stamp 4 -->
+                    <div class="vintage-stamp" onclick="openLightbox('https://santasecret.com.au/ss2.webp', 'Artisan Christmas Collection - Handmade with Love')">
+                        <img src="https://santasecret.com.au/ss2.webp" 
+                             alt="Kim's Christmas Creation" 
+                             class="vintage-stamp-image">
+                        <div class="vintage-stamp-footer">
+                            <div class="vintage-stamp-price">5¢</div>
+                            <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1173,8 +1218,45 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
     <script>
-    <script>
+        // Lightbox functionality
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImage.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('show');
+            
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
         // Hero-Only Snow System
         class HeroSnowSystem {
             constructor() {
@@ -1353,164 +1435,8 @@
 
             resetBtn.addEventListener('click', function() {
                 startDateInput.value = todayFormatted;
-                // Christmas Stamp Carousel
-            let currentStampIndex = 0;
-            const stampImages = document.querySelectorAll('.stamp-image');
-            const stampDots = document.querySelectorAll('.stamp-dot');
-            const totalStampImages = stampImages.length;
-
-            function showStampImage(index) {
-                // Remove active class from all images and dots
-                stampImages.forEach(img => img.classList.remove('active'));
-                stampDots.forEach(dot => dot.classList.remove('active'));
-                
-                // Add active class to current image and dot
-                stampImages[index].classList.add('active');
-                stampDots[index].classList.add('active');
-                
-                currentStampIndex = index;
-            }
-
-            function nextStampImage() {
-                const nextIndex = (currentStampIndex + 1) % totalStampImages;
-                showStampImage(nextIndex);
-            }
-
-            // Auto-rotate stamp images every 4 seconds
-            setInterval(nextStampImage, 4000);
-
-            // Click handlers for stamp dots
-            stampDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showStampImage(index);
-                });
+                startCountdown();
             });
-
-            // Pause auto-rotation on hover
-            const stamp = document.querySelector('.christmas-stamp');
-            let stampInterval;
-            
-            function startStampRotation() {
-                stampInterval = setInterval(nextStampImage, 4000);
-            }
-            
-            function stopStampRotation() {
-                clearInterval(stampInterval);
-            }
-            
-            stamp.addEventListener('mouseenter', stopStampRotation);
-            stamp.addEventListener('mouseleave', startStampRotation);
-            
-            // Start initial rotation
-            startStampRotation();
-            });
-
-            // Enhanced countdown functionality
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const messageEl = document.getElementById('message');
-            const startDateInput = document.getElementById('startDate');
-            const resetBtn = document.getElementById('resetBtn');
-            let countdownInterval;
-
-            console.log('Countdown elements found:', {
-                days: !!daysEl,
-                hours: !!hoursEl,
-                minutes: !!minutesEl,
-                seconds: !!secondsEl,
-                message: !!messageEl,
-                dateInput: !!startDateInput,
-                resetBtn: !!resetBtn
-            });
-
-            const today = new Date();
-            const todayFormatted = today.toISOString().split('T')[0];
-            
-            if (startDateInput) {
-                startDateInput.value = todayFormatted;
-                startDateInput.min = todayFormatted;
-                console.log('Date input set to:', todayFormatted);
-            } else {
-                console.error('Start date input not found!');
-            }
-
-            function getChristmasDate() {
-                const now = new Date();
-                const currentYear = now.getFullYear();
-                let christmasDate = new Date(currentYear, 11, 25, 0, 0, 0); // December 25th at midnight
-                
-                // If Christmas has passed this year, use next year's Christmas
-                if (now > christmasDate) {
-                    christmasDate = new Date(currentYear + 1, 11, 25, 0, 0, 0);
-                }
-                return christmasDate;
-            }
-
-            function updateCountdown() {
-                if (!daysEl || !hoursEl || !minutesEl || !secondsEl || !messageEl) return;
-                
-                const now = new Date();
-                const christmasDate = getChristmasDate();
-                const diff = christmasDate.getTime() - now.getTime();
-                
-                console.log('Current time:', now);
-                console.log('Christmas date:', christmasDate);
-                console.log('Difference in ms:', diff);
-                
-                if (diff <= 0) {
-                    clearInterval(countdownInterval);
-                    daysEl.textContent = '00';
-                    hoursEl.textContent = '00';
-                    minutesEl.textContent = '00';
-                    secondsEl.textContent = '00';
-                    messageEl.textContent = '🎄 Merry Christmas! The magic is here! 🎄';
-                    return;
-                }
-                
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                console.log('Days:', days, 'Hours:', hours, 'Minutes:', minutes, 'Seconds:', seconds);
-                
-                daysEl.textContent = days.toString().padStart(2, '0');
-                hoursEl.textContent = hours.toString().padStart(2, '0');
-                minutesEl.textContent = minutes.toString().padStart(2, '0');
-                secondsEl.textContent = seconds.toString().padStart(2, '0');
-                
-                if (days === 0 && hours < 24) {
-                    messageEl.textContent = '✨ Christmas magic is almost here! ✨';
-                } else if (days < 7) {
-                    messageEl.textContent = '🎁 So close you can almost taste the Christmas cookies! 🍪';
-                } else if (days < 30) {
-                    messageEl.textContent = '🎄 The Christmas excitement is building! 🎄';
-                } else {
-                    messageEl.textContent = '❄️ Counting down to the most magical time of year! ❄️';
-                }
-            }
-
-            function startCountdown() {
-                if (countdownInterval) clearInterval(countdownInterval);
-                updateCountdown();
-                countdownInterval = setInterval(updateCountdown, 1000);
-            }
-
-            if (resetBtn) {
-                resetBtn.addEventListener('click', function() {
-                    if (startDateInput) {
-                        startDateInput.value = todayFormatted;
-                    }
-                    // Close lightbox with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    window.closeLightbox();
-                }
-            });
-                });
-            }
 
             startCountdown();
 
