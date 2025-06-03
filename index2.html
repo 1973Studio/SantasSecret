@@ -32,9 +32,13 @@
         /* Enhanced Hero Background */
         .hero-gradient {
             background: linear-gradient(135deg, 
-                rgba(220, 38, 38, 0.9) 0%, 
-                rgba(153, 27, 27, 0.8) 50%, 
-                rgba(5, 150, 105, 0.7) 100%);
+                rgba(220, 38, 38, 0.6) 0%, 
+                rgba(153, 27, 27, 0.5) 50%, 
+                rgba(5, 150, 105, 0.4) 100%),
+            url('https://santasecret.com.au/banner_SS.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -56,15 +60,15 @@
             100% { opacity: 0.6; }
         }
 
-        /* Enhanced Snow Canvas */
+        /* Enhanced Snow Canvas - Hero Section Only */
         .snow-canvas {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             pointer-events: none;
-            z-index: 1000;
+            z-index: 10;
         }
 
         /* Navigation Enhancement */
@@ -340,6 +344,9 @@
 
     <!-- Enhanced Hero Section -->
     <section id="home" class="relative overflow-hidden min-h-screen flex items-center justify-center hero-gradient">
+        <!-- Snow Canvas - Hero Only -->
+        <canvas id="snowCanvas" class="snow-canvas"></canvas>
+        
         <!-- Floating Christmas decorations -->
         <div class="decoration" style="top: 10%; left: 10%;">🎄</div>
         <div class="decoration" style="top: 20%; right: 15%;">⭐</div>
@@ -815,8 +822,8 @@
     </footer>
 
     <script>
-        // Enhanced Snow System
-        class ChristmasSnowSystem {
+        // Hero-Only Snow System
+        class HeroSnowSystem {
             constructor() {
                 this.canvas = document.getElementById('snowCanvas');
                 if (!this.canvas) return;
@@ -825,9 +832,10 @@
                 this.snowflakes = [];
                 this.isSnowing = true;
                 this.animationId = null;
+                this.heroSection = document.querySelector('#home');
                 
                 this.isMobile = window.innerWidth <= 768;
-                this.maxSnowflakes = this.isMobile ? 30 : 60;
+                this.maxSnowflakes = this.isMobile ? 20 : 40;
                 
                 this.init();
             }
@@ -842,13 +850,19 @@
             }
 
             resizeCanvas() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
+                if (!this.heroSection) return;
+                
+                // Size canvas to match hero section
+                const heroRect = this.heroSection.getBoundingClientRect();
+                this.canvas.width = heroRect.width;
+                this.canvas.height = heroRect.height;
+                this.canvas.style.width = heroRect.width + 'px';
+                this.canvas.style.height = heroRect.height + 'px';
             }
 
             createSnowflake() {
                 return {
-                    x: Math.random() * window.innerWidth,
+                    x: Math.random() * this.canvas.width,
                     y: -10,
                     radius: Math.random() * 4 + 1,
                     speed: Math.random() * 2 + 0.5,
@@ -882,11 +896,13 @@
                     
                     this.ctx.shadowBlur = 0;
 
-                    if (flake.y > window.innerHeight + 10 || flake.x < -50 || flake.x > window.innerWidth + 50) {
+                    // Remove snowflakes that fall outside the hero section
+                    if (flake.y > this.canvas.height + 10 || flake.x < -50 || flake.x > this.canvas.width + 50) {
                         this.snowflakes.splice(i, 1);
                     }
                 }
 
+                // Add new snowflakes only in hero section
                 if (this.snowflakes.length < this.maxSnowflakes && Math.random() < 0.3) {
                     this.snowflakes.push(this.createSnowflake());
                 }
@@ -896,16 +912,24 @@
 
             startSnow() {
                 this.isSnowing = true;
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < 15; i++) {
                     this.snowflakes.push(this.createSnowflake());
                 }
                 this.animate();
             }
+
+            stopSnow() {
+                this.isSnowing = false;
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                }
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize enhanced snow system
-            const snowSystem = new ChristmasSnowSystem();
+            // Initialize hero-only snow system
+            const snowSystem = new HeroSnowSystem();
             
             // Enhanced countdown functionality
             const daysEl = document.getElementById('days');
