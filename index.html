@@ -687,18 +687,11 @@
     <!-- Enhanced Snow Canvas -->
     <canvas id="snowCanvas" class="snow-canvas"></canvas>
 
-    <!-- Updated Navigation with Reduced White Space -->
+    <!-- Updated Navigation without Logo -->
     <nav class="nav-glass sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-2">
             <div class="flex justify-between items-center">
-                <!-- Logo Section - Moved to top alignment -->
-                <div class="flex items-center">
-                    <a href="#" class="w-16 h-16 flex items-center justify-center rounded-lg shadow-sm">
-                        <img src="https://santasecret.com.au/SantaLogo_whitebg.webp" alt="Santa's Secret Logo" class="w-full h-full object-contain">
-                    </a>
-                </div>
-
-                <!-- Desktop Menu - Aligned to top -->
+                <!-- Desktop Menu - Now centered/left aligned without logo -->
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="#home" class="nav-link text-gray-800 hover:text-red-600 py-2">Home</a>
                     <a href="#about" class="nav-link text-gray-800 hover:text-red-600 py-2">About</a>
@@ -708,8 +701,8 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="flex items-center">
-                    <button class="md:hidden focus:outline-none text-gray-800" onclick="toggleMobileMenu()">
+                <div class="flex items-center md:hidden ml-auto">
+                    <button class="focus:outline-none text-gray-800" onclick="toggleMobileMenu()">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -753,7 +746,7 @@
                     <span class="md:inline block text-yellow-300">in the heart of Bungendore</span>
                 </h1>
                 <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-95 hero-mobile-subtitle md:hero-desktop-subtitle">
-                    Bespoke Christmas decorations to make your holidays special ❤️
+                    Bespoke Christmas decorations and gifts to make your holidays special ❤️
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                     <a href="#gallery" class="btn-christmas text-lg transform hover:scale-105">
