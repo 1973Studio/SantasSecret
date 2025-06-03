@@ -29,6 +29,16 @@
             font-weight: 700;
         }
 
+        /* Logo Overlay Styling */
+        .logo-overlay {
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo-overlay:hover {
+            transform: scale(1.05);
+        }
+
         /* Enhanced Hero Background */
         .hero-gradient {
             background: url('https://santasecret.com.au/ss4.webp');
@@ -721,10 +731,20 @@
         </div>
     </nav>
 
-    <!-- Enhanced Hero Section -->
+    <!-- Enhanced Hero Section with Large Logo Overlay -->
     <section id="home" class="relative overflow-hidden min-h-screen flex items-center justify-center hero-gradient">
         <!-- Dark overlay for text readability -->
         <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        
+        <!-- Large Logo Overlay - Updated with working URL -->
+        <div class="absolute top-6 left-6 z-50 logo-overlay" style="pointer-events: none;">
+            <img src="https://santasecret.com.au/SantaLogoWebp.webp" 
+                 alt="Santa's Secret Logo" 
+                 class="w-20 h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain"
+                 style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); opacity: 0.95;"
+                 onload="console.log('Logo loaded successfully!')"
+                 onerror="console.log('Logo failed to load from: https://santasecret.com.au/SantaLogoWebp.webp');">
+        </div>
         
         <!-- Snow Canvas - Hero Only -->
         <canvas id="snowCanvas" class="snow-canvas"></canvas>
