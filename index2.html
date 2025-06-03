@@ -1408,19 +1408,35 @@
             const resetBtn = document.getElementById('resetBtn');
             let countdownInterval;
 
+            console.log('Countdown elements found:', {
+                days: !!daysEl,
+                hours: !!hoursEl,
+                minutes: !!minutesEl,
+                seconds: !!secondsEl,
+                message: !!messageEl,
+                dateInput: !!startDateInput,
+                resetBtn: !!resetBtn
+            });
+
             const today = new Date();
             const todayFormatted = today.toISOString().split('T')[0];
+            
             if (startDateInput) {
                 startDateInput.value = todayFormatted;
                 startDateInput.min = todayFormatted;
+                console.log('Date input set to:', todayFormatted);
+            } else {
+                console.error('Start date input not found!');
             }
 
             function getChristmasDate() {
                 const now = new Date();
                 const currentYear = now.getFullYear();
-                let christmasDate = new Date(currentYear, 11, 25);
+                let christmasDate = new Date(currentYear, 11, 25, 0, 0, 0); // December 25th at midnight
+                
+                // If Christmas has passed this year, use next year's Christmas
                 if (now > christmasDate) {
-                    christmasDate = new Date(currentYear + 1, 11, 25);
+                    christmasDate = new Date(currentYear + 1, 11, 25, 0, 0, 0);
                 }
                 return christmasDate;
             }
@@ -1430,7 +1446,11 @@
                 
                 const now = new Date();
                 const christmasDate = getChristmasDate();
-                const diff = christmasDate - now;
+                const diff = christmasDate.getTime() - now.getTime();
+                
+                console.log('Current time:', now);
+                console.log('Christmas date:', christmasDate);
+                console.log('Difference in ms:', diff);
                 
                 if (diff <= 0) {
                     clearInterval(countdownInterval);
@@ -1446,6 +1466,8 @@
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                console.log('Days:', days, 'Hours:', hours, 'Minutes:', minutes, 'Seconds:', seconds);
                 
                 daysEl.textContent = days.toString().padStart(2, '0');
                 hoursEl.textContent = hours.toString().padStart(2, '0');
