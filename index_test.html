@@ -265,9 +265,9 @@
         /* Enhanced Vintage Christmas Stamps Collection */
         .stamps-collection {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 30px;
             background: #f8f6f0;
@@ -658,15 +658,15 @@
 
     <!-- Navigation -->
     <nav class="nav-glass sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
+        <div class="container mx-auto px-6 py-2">
+            <div class="flex justify-between items-start">
                 <div class="flex items-center">
-                    <a href="#" class="w-24 h-24 flex items-center justify-center rounded-lg shadow-sm">
+                    <a href="#" class="w-16 h-16 flex items-center justify-center rounded-lg shadow-sm">
                         <img src="https://santasecret.com.au/SantaLogo_whitebg.webp" alt="Santa's Secret Logo" class="w-full h-full object-contain">
                     </a>
                 </div>
 
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 pt-4">
                     <a href="#home" class="nav-link text-gray-800 hover:text-red-600">Home</a>
                     <a href="#about" class="nav-link text-gray-800 hover:text-red-600">About</a>
                     <a href="#countdown" class="nav-link text-gray-800 hover:text-red-600">Countdown</a>
@@ -674,7 +674,7 @@
                     <a href="#visitus" class="nav-link text-gray-800 hover:text-red-600">Visit Us</a>
                 </div>
 
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-4 pt-4">
                     <button class="md:hidden focus:outline-none text-gray-800">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
