@@ -266,10 +266,10 @@
         .stamps-collection {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            max-width: 500px;
+            gap: 20px;
+            max-width: 400px;
             margin: 0 auto;
-            padding: 25px;
+            padding: 20px;
             background: #f8f6f0;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -277,8 +277,8 @@
 
         .vintage-stamp {
             position: relative;
-            width: 200px;
-            height: 250px;
+            width: 160px;
+            height: 200px;
             background: #faf9f7;
             border: 2px solid #8b4513;
             margin: 0 auto;
@@ -286,8 +286,6 @@
             transform: rotate(-1deg);
             transition: all 0.4s ease;
             cursor: pointer;
-            display: block;
-            text-decoration: none;
         }
 
         .vintage-stamp:nth-child(2n) {
@@ -318,7 +316,7 @@
 
         .vintage-stamp-image {
             width: 100%;
-            height: 170px;
+            height: 130px;
             object-fit: cover;
             border-bottom: 2px solid #8b4513;
             position: relative;
@@ -353,75 +351,16 @@
             line-height: 1.2;
         }
 
-        /* Lightbox Modal */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-image {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: lightboxFadeIn 0.3s ease-out;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1001;
-            transition: color 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            color: #dc2626;
-        }
-
-        @keyframes lightboxFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
         @media (max-width: 768px) {
             .stamps-collection {
                 grid-template-columns: 1fr;
-                max-width: 250px;
-                gap: 20px;
+                max-width: 200px;
+                gap: 15px;
             }
             
             .vintage-stamp {
-                width: 180px;
-                height: 225px;
-            }
-
-            .vintage-stamp-image {
-                height: 150px;
+                width: 140px;
+                height: 175px;
             }
         }
         .christmas-stamp {
@@ -744,7 +683,7 @@
             <div class="order-1 md:order-2 flex justify-center items-center">
                 <div class="stamps-collection">
                     <!-- Stamp 1 -->
-                    <a href="https://santasecret.com.au/ss1.webp" target="_blank" class="vintage-stamp">
+                    <div class="vintage-stamp">
                         <img src="https://santasecret.com.au/ss1.webp" 
                              alt="Kim's Christmas Creation" 
                              class="vintage-stamp-image">
@@ -752,10 +691,10 @@
                             <div class="vintage-stamp-price">5¢</div>
                             <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Stamp 2 -->
-                    <a href="https://santasecret.com.au/ss3.webp" target="_blank" class="vintage-stamp">
+                    <div class="vintage-stamp">
                         <img src="https://santasecret.com.au/ss3.webp" 
                              alt="Kim's Christmas Creation" 
                              class="vintage-stamp-image">
@@ -763,10 +702,10 @@
                             <div class="vintage-stamp-price">5¢</div>
                             <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Stamp 3 -->
-                    <a href="https://santasecret.com.au/ss6.webp" target="_blank" class="vintage-stamp">
+                    <div class="vintage-stamp">
                         <img src="https://santasecret.com.au/ss6.webp" 
                              alt="Kim's Christmas Creation" 
                              class="vintage-stamp-image">
@@ -774,10 +713,10 @@
                             <div class="vintage-stamp-price">5¢</div>
                             <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Stamp 4 -->
-                    <a href="https://santasecret.com.au/ss2.webp" target="_blank" class="vintage-stamp">
+                    <div class="vintage-stamp">
                         <img src="https://santasecret.com.au/ss2.webp" 
                              alt="Kim's Christmas Creation" 
                              class="vintage-stamp-image">
@@ -785,7 +724,7 @@
                             <div class="vintage-stamp-price">5¢</div>
                             <div class="vintage-stamp-text">Santa's Secret<br>Bungendore</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1167,7 +1106,6 @@
     </footer>
 
     <script>
-    <script>
         // Hero-Only Snow System
         class HeroSnowSystem {
             constructor() {
@@ -1398,125 +1336,13 @@
             startStampRotation();
             });
 
-            // Enhanced countdown functionality
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const messageEl = document.getElementById('message');
-            const startDateInput = document.getElementById('startDate');
-            const resetBtn = document.getElementById('resetBtn');
-            let countdownInterval;
-
-            console.log('Countdown elements found:', {
-                days: !!daysEl,
-                hours: !!hoursEl,
-                minutes: !!minutesEl,
-                seconds: !!secondsEl,
-                message: !!messageEl,
-                dateInput: !!startDateInput,
-                resetBtn: !!resetBtn
-            });
-
-            const today = new Date();
-            const todayFormatted = today.toISOString().split('T')[0];
-            
-            if (startDateInput) {
-                startDateInput.value = todayFormatted;
-                startDateInput.min = todayFormatted;
-                console.log('Date input set to:', todayFormatted);
-            } else {
-                console.error('Start date input not found!');
-            }
-
-            function getChristmasDate() {
-                const now = new Date();
-                const currentYear = now.getFullYear();
-                let christmasDate = new Date(currentYear, 11, 25, 0, 0, 0); // December 25th at midnight
-                
-                // If Christmas has passed this year, use next year's Christmas
-                if (now > christmasDate) {
-                    christmasDate = new Date(currentYear + 1, 11, 25, 0, 0, 0);
-                }
-                return christmasDate;
-            }
-
-            function updateCountdown() {
-                if (!daysEl || !hoursEl || !minutesEl || !secondsEl || !messageEl) return;
-                
-                const now = new Date();
-                const christmasDate = getChristmasDate();
-                const diff = christmasDate.getTime() - now.getTime();
-                
-                console.log('Current time:', now);
-                console.log('Christmas date:', christmasDate);
-                console.log('Difference in ms:', diff);
-                
-                if (diff <= 0) {
-                    clearInterval(countdownInterval);
-                    daysEl.textContent = '00';
-                    hoursEl.textContent = '00';
-                    minutesEl.textContent = '00';
-                    secondsEl.textContent = '00';
-                    messageEl.textContent = '🎄 Merry Christmas! The magic is here! 🎄';
-                    return;
-                }
-                
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                console.log('Days:', days, 'Hours:', hours, 'Minutes:', minutes, 'Seconds:', seconds);
-                
-                daysEl.textContent = days.toString().padStart(2, '0');
-                hoursEl.textContent = hours.toString().padStart(2, '0');
-                minutesEl.textContent = minutes.toString().padStart(2, '0');
-                secondsEl.textContent = seconds.toString().padStart(2, '0');
-                
-                if (days === 0 && hours < 24) {
-                    messageEl.textContent = '✨ Christmas magic is almost here! ✨';
-                } else if (days < 7) {
-                    messageEl.textContent = '🎁 So close you can almost taste the Christmas cookies! 🍪';
-                } else if (days < 30) {
-                    messageEl.textContent = '🎄 The Christmas excitement is building! 🎄';
-                } else {
-                    messageEl.textContent = '❄️ Counting down to the most magical time of year! ❄️';
-                }
-            }
-
-            function startCountdown() {
-                if (countdownInterval) clearInterval(countdownInterval);
-                updateCountdown();
-                countdownInterval = setInterval(updateCountdown, 1000);
-            }
-
-            if (resetBtn) {
-                resetBtn.addEventListener('click', function() {
-                    if (startDateInput) {
-                        startDateInput.value = todayFormatted;
-                    }
-                    // Close lightbox with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    window.closeLightbox();
-                }
-            });
-                });
-            }
-
             startCountdown();
 
             // Mobile menu toggle
-            const mobileMenuButton = document.querySelector('.md\\:hidden');
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', function() {
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    if (mobileMenu) {
-                        mobileMenu.classList.toggle('hidden');
-                    }
-                });
-            }
+            document.querySelector('.md\\:hidden').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('hidden');
+            });
 
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1532,7 +1358,7 @@
                     
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobileMenu');
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 });
@@ -1541,12 +1367,10 @@
             // Add scroll-based navigation background
             window.addEventListener('scroll', function() {
                 const nav = document.querySelector('nav');
-                if (nav) {
-                    if (window.scrollY > 100) {
-                        nav.classList.add('shadow-lg');
-                    } else {
-                        nav.classList.remove('shadow-lg');
-                    }
+                if (window.scrollY > 100) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
                 }
             });
         });
