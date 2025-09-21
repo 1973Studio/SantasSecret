@@ -61,7 +61,12 @@
 
         /* Halloween Hero Background */
         .halloween-hero {
-            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #111827 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1477516561410-f0b5dd8319e4?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
@@ -73,9 +78,36 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="bats" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15,10 Q10,5 5,10 Q10,15 15,10 Q20,15 25,10 Q20,5 15,10 Z" fill="rgba(249,115,22,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23bats)"/></svg>');
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite alternate;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+            opacity: 0.8;
+            animation: spooky-glow 6s ease-in-out infinite alternate;
+        }
+
+        .halloween-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(249, 115, 22, 0.1) 50%, 
+                transparent 70%);
+            animation: eerie-sweep 8s ease-in-out infinite;
+        }
+
+        @keyframes spooky-glow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes eerie-sweep {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
         }
 
         /* Enhanced Cards */
@@ -352,89 +384,91 @@
         <div class="container mx-auto px-6 z-20 text-center text-white relative">
             <div class="max-w-5xl mx-auto">
                 <div class="animate-spooky-float mb-8">
-                    <i class="fas fa-ghost text-orange-400 text-6xl mb-6"></i>
+                    <i class="fas fa-ghost text-orange-400 text-6xl mb-6 drop-shadow-lg"></i>
                 </div>
-                <h1 class="heading-font text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-8 leading-tight">
-                    Spooktacular Halloween 
-                    <span class="text-orange-400">Decorations & Crafts</span>
+                <h1 class="heading-font text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-8 leading-tight drop-shadow-lg">
+                    Bungendore's Biggest
+                    <span class="text-orange-400">Halloween Event</span>
                 </h1>
-                <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-95">
-                    Transform your home into a haunted haven with our handcrafted Halloween decorations and spooky seasonal crafts
+                <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-95 drop-shadow-md">
+                    Join us for a spooktacular community celebration featuring local businesses, family fun, and spine-tingling entertainment
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#halloween-collection" class="btn-halloween text-lg transform hover:scale-105">
-                        <i class="fas fa-magic mr-3"></i>Explore Halloween Magic
+                    <a href="#event-details" class="btn-halloween text-lg transform hover:scale-105">
+                        <i class="fas fa-calendar mr-3"></i>Event Details
                     </a>
-                    <a href="index.html#visitus" class="text-white border-2 border-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-gray-800 transition-all duration-300">
-                        <i class="fas fa-store mr-2"></i>Visit Our Shop
+                    <a href="#supporting-businesses" class="text-white border-2 border-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-gray-800 transition-all duration-300">
+                        <i class="fas fa-handshake mr-2"></i>Our Partners
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Halloween About Section -->
-    <section class="halloween-bg py-20 px-6 relative">
+    <!-- Halloween Event Details -->
+    <section id="event-details" class="halloween-bg py-20 px-6 relative">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="heading-font text-4xl md:text-6xl font-extrabold mb-6 text-gradient-halloween">
-                    Halloween Collection
+                    Halloween Event Details
                 </h2>
                 <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                    From eerie elegance to playful pumpkins, our Halloween collection brings the perfect blend of spooky and stylish to your seasonal celebrations
+                    Mark your calendars for Bungendore's most exciting Halloween celebration! Details coming soon...
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Pumpkin Decorations -->
+                <!-- Event Info Card -->
                 <div class="magical-card p-8 rounded-3xl text-center">
                     <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-seedling text-orange-600 text-3xl"></i>
+                        <i class="fas fa-calendar-alt text-orange-600 text-3xl"></i>
                     </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Pumpkin Perfection</h3>
+                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Event Date & Time</h3>
                     <p class="text-gray-700 mb-6">
-                        Handcrafted pumpkin displays, carved jack-o'-lanterns, and painted gourds that bring autumn warmth to your doorstep.
+                        Halloween celebration details coming soon! Stay tuned for the official announcement.
                     </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• Custom carved designs</li>
-                        <li>• Painted decorative pumpkins</li>
-                        <li>• Miniature pumpkin arrangements</li>
-                        <li>• Glow-in-the-dark options</li>
-                    </ul>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-orange-800">Updates coming this week!</p>
+                    </div>
                 </div>
 
-                <!-- Spooky Wreaths -->
+                <!-- Location Card -->
                 <div class="magical-card p-8 rounded-3xl text-center">
                     <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-circle-notch text-purple-600 text-3xl"></i>
+                        <i class="fas fa-map-marker-alt text-purple-600 text-3xl"></i>
                     </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Haunted Wreaths</h3>
+                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Location</h3>
                     <p class="text-gray-700 mb-6">
-                        Spine-tingling wreaths featuring dark foliage, miniature skulls, ravens, and other ghostly elements for your front door.
+                        The heart of Bungendore will come alive with Halloween spirit! Exact locations and venues to be announced.
                     </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• Gothic black and orange designs</li>
-                        <li>• Raven and bat accents</li>
-                        <li>• LED lighting options</li>
-                        <li>• Weather-resistant materials</li>
-                    </ul>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-purple-800">Multiple venues planned!</p>
+                    </div>
                 </div>
 
-                <!-- Indoor Decor -->
+                <!-- Activities Card -->
                 <div class="magical-card p-8 rounded-3xl text-center">
                     <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-home text-gray-600 text-3xl"></i>
+                        <i class="fas fa-magic text-gray-600 text-3xl"></i>
                     </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Indoor Hauntings</h3>
+                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Family Activities</h3>
                     <p class="text-gray-700 mb-6">
-                        Transform your living spaces with elegant Halloween centerpieces, candle arrangements, and atmospheric decorations.
+                        Spine-tingling entertainment, family-friendly activities, and community fun for all ages.
                     </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• Spooky candle displays</li>
-                        <li>• Halloween table runners</li>
-                        <li>• Ghostly garlands</li>
-                        <li>• Vintage-inspired accents</li>
-                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-gray-800">Something for everyone!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QPRC Partnership Highlight -->
+            <div class="mt-16 magical-card p-8 rounded-3xl text-center">
+                <h3 class="heading-font text-2xl font-bold mb-4 text-gradient-halloween">Official Council Support</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    We're excited to be working with Queanbeyan-Palerang Regional Council (QPRC) to bring you this amazing community event!
+                </p>
+                <div class="bg-gradient-to-r from-orange-50 to-purple-50 p-6 rounded-2xl">
+                    <p class="font-semibold text-gray-900">Stay tuned for more exciting announcements!</p>
                 </div>
             </div>
         </div>
