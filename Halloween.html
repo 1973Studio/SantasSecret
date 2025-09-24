@@ -222,8 +222,8 @@
 
         .business-logo-container {
             position: relative;
-            width: 150px;
-            height: 100px;
+            width: 180px;
+            height: 120px;
             cursor: pointer;
         }
 
@@ -235,6 +235,8 @@
             top: 0;
             left: 0;
             transition: all 0.3s ease;
+            border-radius: 50%;
+            border: 3px solid transparent;
         }
 
         .business-logo.gray {
@@ -252,6 +254,7 @@
         .business-logo-container:hover .business-logo.color {
             opacity: 1;
             transform: scale(1.1);
+            border-color: var(--halloween-orange);
         }
 
         .lightbox {
@@ -312,8 +315,8 @@
 
         @media (max-width: 768px) {
             .business-logo-container {
-                width: 120px;
-                height: 80px;
+                width: 140px;
+                height: 90px;
             }
         }
     </style>
@@ -464,14 +467,13 @@
 
                 <div class="text-center mt-8">
                     <div class="bg-purple-900 rounded-xl p-6 inline-block">
-                        <p class="text-green-400 text-lg font-bold mb-2">
-                            <i class="fab fa-facebook mr-2"></i><i class="fab fa-instagram mr-2"></i>
+                        <p class="text-green-400 text-lg font-bold mb-3">
                             Follow for Updates!
                         </p>
-                        <p class="text-white">
-                            @santassecretbungendore on Facebook & Instagram<br>
-                            for further details and announcements
-                        </p>
+                        <a href="https://www.instagram.com/santassecretbungendore" target="_blank" class="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-bold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                            <i class="fab fa-instagram text-xl mr-3"></i>
+                            @santassecretbungendore
+                        </a>
                     </div>
                 </div>
             </div>
