@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween Collection - Santa's Secret</title>
-    <link rel="icon" type="image/png" href="/boxicon.ico">
-
+    <title>Halloween Spooktacular - Santa's Secret</title>
+    <link rel="icon" type="image/png" href="https://santasecret.com.au/boxicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --halloween-orange: #f97316;
-            --halloween-purple: #7c3aed;
+            --halloween-orange: #ff6b35;
+            --halloween-purple: #6b46c1;
             --halloween-black: #1f2937;
             --halloween-gold: #f59e0b;
-            --warm-white: #fef7ed;
-            --soft-gray: #f8fafc;
+            --spooky-green: #10b981;
+            --dark-purple: #4c1d95;
         }
 
         body {
@@ -30,7 +29,10 @@
             font-weight: 700;
         }
 
-        /* Navigation Enhancement */
+        .spooky-font {
+            font-family: 'Creepster', cursive;
+        }
+
         .nav-glass {
             background: rgba(255, 255, 255, 1);
             backdrop-filter: blur(10px);
@@ -59,10 +61,9 @@
             width: 100%;
         }
 
-        /* Halloween Hero Background */
         .halloween-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
-                        url('https://images.unsplash.com/photo-1477516561410-f0b5dd8319e4?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(75, 0, 130, 0.3)), 
+                        url('https://images.unsplash.com/photo-1509557965043-6b9ac6e39ec8?w=1200&auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -78,223 +79,84 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 60% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
-            opacity: 0.8;
-            animation: spooky-glow 6s ease-in-out infinite alternate;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(107, 70, 193, 0.3) 0%, transparent 50%);
+            animation: spookyGlow 4s ease-in-out infinite alternate;
         }
 
-        .halloween-hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                transparent 30%, 
-                rgba(249, 115, 22, 0.1) 50%, 
-                transparent 70%);
-            animation: eerie-sweep 8s ease-in-out infinite;
+        @keyframes spookyGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
         }
 
-        @keyframes spooky-glow {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes eerie-sweep {
-            0% { transform: translateX(-100%) skewX(-15deg); }
-            100% { transform: translateX(200%) skewX(-15deg); }
-        }
-
-        /* Enhanced Cards */
-        .magical-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid rgba(249, 115, 22, 0.1);
-            box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.1),
-                0 0 20px rgba(249, 115, 22, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .magical-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(249, 115, 22, 0.03), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-            opacity: 0;
-        }
-
-        .magical-card:hover::before {
-            animation: shimmer 1.5s ease-in-out;
-        }
-
-        .magical-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.15),
-                0 0 30px rgba(249, 115, 22, 0.1);
-        }
-
-        @keyframes shimmer {
-            0% { opacity: 0; transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            50% { opacity: 1; }
-            100% { opacity: 0; transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        /* Halloween Button Enhancement */
-        .btn-halloween {
-            background: linear-gradient(135deg, var(--halloween-orange) 0%, #ea580c 100%);
-            color: white;
-            font-weight: 600;
-            padding: 12px 32px;
-            border-radius: 50px;
-            border: none;
-            box-shadow: 
-                0 4px 15px rgba(249, 115, 22, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-halloween::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-halloween:hover::before {
-            left: 100%;
-        }
-
-        .btn-halloween:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 8px 25px rgba(249, 115, 22, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        /* Enhanced Section Backgrounds */
-        .halloween-bg {
-            background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
-            position: relative;
-        }
-
-        .halloween-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        /* Gallery Enhancement */
-        .gallery-item {
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(249, 115, 22, 0.1), rgba(124, 58, 237, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Floating Animation */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes spooky-float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
-        .animate-float {
+        .float-animation {
             animation: float 3s ease-in-out infinite;
         }
 
-        .animate-spooky-float {
-            animation: spooky-float 4s ease-in-out infinite;
+        .bounce-animation {
+            animation: bounce 2s infinite;
         }
 
-        /* Text Gradient */
-        .text-gradient-halloween {
-            background: linear-gradient(135deg, var(--halloween-orange) 0%, var(--halloween-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .btn-halloween {
+            background: linear-gradient(135deg, var(--halloween-orange) 0%, #e55b2b 100%);
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
         }
 
-        /* Halloween decoration elements */
-        .halloween-decoration {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.1;
-            animation: spooky-float 4s ease-in-out infinite;
+        .btn-halloween:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
         }
 
-        .halloween-decoration:nth-child(2n) {
-            animation-delay: -2s;
-            animation-duration: 6s;
+        .btn-spooky {
+            background: linear-gradient(135deg, var(--halloween-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(107, 70, 193, 0.4);
+            transition: all 0.3s ease;
         }
 
-        /* Product Cards */
+        .btn-spooky:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 70, 193, 0.6);
+        }
+
         .product-card {
             background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
-            border: 1px solid rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.1);
         }
 
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--halloween-orange);
         }
 
         .product-image {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
@@ -303,53 +165,147 @@
             transform: scale(1.1);
         }
 
-        /* Enhanced Mobile Responsiveness */
+        .text-gradient-halloween {
+            background: linear-gradient(135deg, var(--halloween-orange) 0%, var(--halloween-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            border-radius: 20px;
+            border: 2px solid var(--halloween-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .business-logo {
+            width: 120px;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .business-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: -10px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(220, 38, 38, 0.8);
+            transform: scale(1.1);
+        }
+
+        .spider-web {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 0L50 100M0 50L100 50M15 15L85 85M85 15L15 85" stroke="%23ffffff" stroke-width="1" fill="none"/></svg>');
+        }
+
         @media (max-width: 768px) {
-            .halloween-hero h1 {
-                font-size: 2.5rem;
+            .business-logo {
+                width: 100px;
+                height: 65px;
             }
-            
-            .gallery-item:hover {
-                transform: scale(1.02);
-            }
-        }
-
-        /* Spooky glow effect */
-        .spooky-glow {
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
-            to { box-shadow: 0 0 30px rgba(249, 115, 22, 0.5); }
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-900">
     <!-- Navigation -->
     <nav class="nav-glass sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-2">
             <div class="flex justify-between items-center">
-                <!-- Logo Section -->
                 <div class="flex items-center">
                     <a href="index.html" class="w-16 h-16 flex items-center justify-center rounded-lg shadow-sm">
                         <img src="https://santasecret.com.au/SantaLogo_whitebg.webp" alt="Santa's Secret Logo" class="w-full h-full object-contain">
                     </a>
                 </div>
 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="index.html" class="nav-link text-gray-800 hover:text-orange-600 py-2">Home</a>
                     <a href="index.html#about" class="nav-link text-gray-800 hover:text-orange-600 py-2">About</a>
                     <a href="index.html#countdown" class="nav-link text-gray-800 hover:text-orange-600 py-2">Countdown</a>
                     <a href="index.html#gallery" class="nav-link text-gray-800 hover:text-orange-600 py-2">Gallery</a>
                     <a href="halloween.html" class="nav-link text-orange-600 py-2 font-semibold">Halloween</a>
-                    <a href="wreathes.html" class="nav-link text-gray-800 hover:text-orange-600 py-2">Wreathes</a>
+                    <a href="wreaths.html" class="nav-link text-gray-800 hover:text-orange-600 py-2">Wreaths</a>
                     <a href="index.html#visitus" class="nav-link text-gray-800 hover:text-orange-600 py-2">Visit Us</a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="flex items-center">
                     <button class="md:hidden focus:outline-none text-gray-800" onclick="toggleMobileMenu()">
                         <i class="fas fa-bars text-xl"></i>
@@ -357,7 +313,6 @@
                 </div>
             </div>
 
-            <!-- Mobile menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-3 pb-3">
                 <div class="flex flex-col space-y-2">
                     <a href="index.html" class="py-2 text-gray-800 hover:text-orange-600">Home</a>
@@ -365,240 +320,254 @@
                     <a href="index.html#countdown" class="py-2 text-gray-800 hover:text-orange-600">Countdown</a>
                     <a href="index.html#gallery" class="py-2 text-gray-800 hover:text-orange-600">Gallery</a>
                     <a href="halloween.html" class="py-2 text-orange-600 font-semibold">Halloween</a>
-                    <a href="wreathes.html" class="py-2 text-gray-800 hover:text-orange-600">Wreathes</a>
+                    <a href="wreaths.html" class="py-2 text-gray-800 hover:text-orange-600">Wreaths</a>
                     <a href="index.html#visitus" class="py-2 text-gray-800 hover:text-orange-600">Visit Us</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Halloween Hero Section -->
+    <!-- Hero Section -->
     <section class="relative overflow-hidden min-h-screen flex items-center justify-center halloween-hero">
-        <!-- Halloween decorations -->
-        <div class="halloween-decoration" style="top: 10%; left: 10%;">🎃</div>
-        <div class="halloween-decoration" style="top: 20%; right: 15%;">🦇</div>
-        <div class="halloween-decoration" style="bottom: 30%; left: 20%;">👻</div>
-        <div class="halloween-decoration" style="bottom: 20%; right: 10%;">🕷️</div>
-        <div class="halloween-decoration" style="top: 60%; left: 5%;">🌙</div>
-        
+        <div class="spider-web"></div>
         <div class="container mx-auto px-6 z-20 text-center text-white relative">
             <div class="max-w-5xl mx-auto">
-                <div class="animate-spooky-float mb-8">
-                    <i class="fas fa-ghost text-orange-400 text-6xl mb-6 drop-shadow-lg"></i>
+                <div class="mb-8">
+                    <i class="fas fa-ghost text-6xl md:text-8xl text-orange-400 float-animation"></i>
                 </div>
-                <h1 class="heading-font text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-8 leading-tight drop-shadow-lg">
-                    Bungendore's Biggest
-                    <span class="text-orange-400">Halloween Event</span>
+                <h1 class="spooky-font text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight drop-shadow-lg text-gradient-halloween">
+                    Halloween Spooktacular!
                 </h1>
-                <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-95 drop-shadow-md">
-                    Join us for a spooktacular community celebration featuring local businesses, family fun, and spine-tingling entertainment
+                <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-95 drop-shadow-md">
+                    Get ready for a frighteningly fun Halloween in Bungendore! Join us for trick-or-treating, spooky decorations, and spine-chilling good times!
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#event-details" class="btn-halloween text-lg transform hover:scale-105">
-                        <i class="fas fa-calendar mr-3"></i>Event Details
+                    <a href="#halloween-event" class="btn-halloween text-lg transform hover:scale-105 bounce-animation">
+                        <i class="fas fa-candy-cane mr-3"></i>Join the Fun
                     </a>
-                    <a href="#supporting-businesses" class="text-white border-2 border-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-gray-800 transition-all duration-300">
-                        <i class="fas fa-handshake mr-2"></i>Our Partners
+                    <a href="#halloween-hats" class="btn-spooky text-lg">
+                        <i class="fas fa-hat-wizard mr-2"></i>Spooky Hats
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Halloween Event Details -->
-    <section id="event-details" class="halloween-bg py-20 px-6 relative">
+    <!-- Halloween Event Section -->
+    <section id="halloween-event" class="py-20 px-6 bg-gray-900 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="spooky-font text-4xl md:text-5xl font-extrabold mb-6 text-gradient-halloween">
+                    Bungendore Halloween Trick or Treat
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Join us on Friday, October 31st for a spook-tacular evening of trick-or-treating with local Bungendore businesses!
+                </p>
+            </div>
+
+            <div class="event-card p-8 md:p-12 mb-12 relative z-10">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-bold mb-4">
+                        <i class="fas fa-calendar-alt mr-2"></i>Friday, October 31st
+                    </div>
+                    <h3 class="heading-font text-3xl md:text-4xl font-bold text-white mb-4">
+                        Multiple Local Businesses Open for Trick or Treating!
+                    </h3>
+                    <p class="text-gray-300 text-lg">
+                        We are thrilled to announce that multiple local Bungendore businesses will be open for trick or treating! 
+                        Along with Santa's Secret, enjoy a fantastic Halloween experience throughout the town.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                    <h4 class="text-2xl font-bold text-orange-400 mb-4 text-center">
+                        <i class="fas fa-store mr-2"></i>Participating Businesses
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-4 text-gray-300">
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span class="font-semibold text-white">Santa's Secret</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Bungendore Leather & Trading</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Nersons Pie Place</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Village Antiques, Bungendore</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Sage Natural Living Bungendore NSW</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Taym Hair Studio <span class="text-sm">(til 4pm)</span> - Village Square</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Btown Kids - Village Square</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Bungendore Lolly Shop - Village Square</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Royal Hotel Bungendore</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-400 mr-3"></i>
+                                <span>Scrumpers Kitchen - Village Square</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-plus text-purple-400 mr-3"></i>
+                                <span class="italic text-purple-300">And a few more to come!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-orange-500 to-red-600 rounded-xl p-6 text-center">
+                    <h4 class="text-2xl font-bold text-white mb-3">
+                        <i class="fas fa-utensils mr-2"></i>Special Event
+                    </h4>
+                    <p class="text-white text-lg">
+                        Join us for a <strong>sausage sizzle with the Lions Club of Bungendore & Districts!</strong><br>
+                        Bring the family and enjoy a great evening together!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Business Logos Section -->
+            <div class="text-center mb-12">
+                <h3 class="heading-font text-3xl font-bold text-white mb-8">
+                    Our Spooky Partners
+                </h3>
+                <p class="text-gray-400 mb-8">Hover over the logos to see them come to life!</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
+                    <!-- Note: Since actual business logos weren't provided, I'm using placeholder images -->
+                    <!-- You would replace these with the actual business logo URLs -->
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Bungendore+Leather" alt="Bungendore Leather & Trading" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Nersons+Pie" alt="Nersons Pie Place" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Village+Antiques" alt="Village Antiques" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Sage+Natural" alt="Sage Natural Living" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Taym+Hair" alt="Taym Hair Studio" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Btown+Kids" alt="Btown Kids" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Lolly+Shop" alt="Bungendore Lolly Shop" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Royal+Hotel" alt="Royal Hotel Bungendore" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Scrumpers" alt="Scrumpers Kitchen" class="business-logo">
+                    </div>
+                    <div class="business-logo-container">
+                        <img src="https://via.placeholder.com/120x80/4B5563/FFFFFF?text=Lions+Club" alt="Lions Club of Bungendore" class="business-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Halloween Hats Gallery -->
+    <section id="halloween-hats" class="py-20 px-6 bg-black">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="heading-font text-4xl md:text-6xl font-extrabold mb-6 text-gradient-halloween">
-                    Halloween Event Details
+                <h2 class="spooky-font text-4xl md:text-5xl font-extrabold mb-6 text-gradient-halloween">
+                    Spooky Halloween Hats
                 </h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                    Mark your calendars for Bungendore's most exciting Halloween celebration! Details coming soon...
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                    Handcrafted Halloween hats to complete your spooky look! Each one is unique and made with frightening attention to detail.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Event Info Card -->
-                <div class="magical-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-calendar-alt text-orange-600 text-3xl"></i>
-                    </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Event Date & Time</h3>
-                    <p class="text-gray-700 mb-6">
-                        Halloween celebration details coming soon! Stay tuned for the official announcement.
-                    </p>
-                    <div class="bg-orange-50 p-4 rounded-lg">
-                        <p class="text-sm font-semibold text-orange-800">Updates coming this week!</p>
-                    </div>
-                </div>
-
-                <!-- Location Card -->
-                <div class="magical-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-map-marker-alt text-purple-600 text-3xl"></i>
-                    </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Location</h3>
-                    <p class="text-gray-700 mb-6">
-                        The heart of Bungendore will come alive with Halloween spirit! Exact locations and venues to be announced.
-                    </p>
-                    <div class="bg-purple-50 p-4 rounded-lg">
-                        <p class="text-sm font-semibold text-purple-800">Multiple venues planned!</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Halloween Hat 1 -->
+                <div class="hat-item">
+                    <div class="product-card cursor-pointer relative bg-gray-800 border-orange-500" onclick="openLightbox('https://santasecret.com.au/images/spooky/halloweenHat.webp', 'Spooky Halloween Hat')">
+                        <div class="overflow-hidden">
+                            <img src="https://santasecret.com.au/images/spooky/halloweenHat.webp" alt="Halloween Hat" class="product-image">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="heading-font text-2xl font-bold mb-3 text-white">Spooky Halloween Hat</h3>
+                            <p class="text-gray-300 mb-4">A perfectly spooky hat to complete your Halloween costume with style and fright!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold text-orange-400">Handcrafted</span>
+                                <button class="text-orange-400 hover:text-orange-300 font-semibold">
+                                    <i class="fas fa-eye mr-2"></i>View Details
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Activities Card -->
-                <div class="magical-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 spooky-glow">
-                        <i class="fas fa-magic text-gray-600 text-3xl"></i>
-                    </div>
-                    <h3 class="heading-font text-2xl font-bold mb-4 text-gray-900">Family Activities</h3>
-                    <p class="text-gray-700 mb-6">
-                        Spine-tingling entertainment, family-friendly activities, and community fun for all ages.
-                    </p>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="text-sm font-semibold text-gray-800">Something for everyone!</p>
+                <!-- Halloween Hat 2 -->
+                <div class="hat-item">
+                    <div class="product-card cursor-pointer relative bg-gray-800 border-orange-500" onclick="openLightbox('https://santasecret.com.au/images/spooky/halloweenHat2.webp', 'Enchanted Halloween Hat')">
+                        <div class="overflow-hidden">
+                            <img src="https://santasecret.com.au/images/spooky/halloweenHat2.webp" alt="Halloween Hat 2" class="product-image">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="heading-font text-2xl font-bold mb-3 text-white">Enchanted Halloween Hat</h3>
+                            <p class="text-gray-300 mb-4">An enchanting Halloween creation that will cast a spell on everyone who sees it!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold text-orange-400">Handcrafted</span>
+                                <button class="text-orange-400 hover:text-orange-300 font-semibold">
+                                    <i class="fas fa-eye mr-2"></i>View Details
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- QPRC Partnership Highlight -->
-            <div class="mt-16 magical-card p-8 rounded-3xl text-center">
-                <h3 class="heading-font text-2xl font-bold mb-4 text-gradient-halloween">Official Council Support</h3>
-                <p class="text-lg text-gray-700 mb-6">
-                    We're excited to be working with Queanbeyan-Palerang Regional Council (QPRC) to bring you this amazing community event!
-                </p>
-                <div class="bg-gradient-to-r from-orange-50 to-purple-50 p-6 rounded-2xl">
-                    <p class="font-semibold text-gray-900">Stay tuned for more exciting announcements!</p>
+            <div class="text-center mt-12">
+                <p class="text-gray-300 mb-6">Need a custom Halloween hat? Kim can create something uniquely spooky just for you!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#visitus" class="btn-halloween text-lg">
+                        <i class="fas fa-store mr-2"></i>Visit Our Workshop
+                    </a>
+                    <a href="tel:0480784317" class="btn-spooky text-lg">
+                        <i class="fas fa-phone mr-2"></i>Call About Custom Hats
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Supporting Businesses Section -->
-    <section id="supporting-businesses" class="py-20 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="heading-font text-4xl md:text-5xl font-extrabold mb-6 text-gradient-halloween">
-                    Our Amazing Partners
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    We're thrilled to partner with these fantastic local businesses to bring you Bungendore's biggest Halloween celebration
-                </p>
-            </div>
-
-            <!-- Partner logos will be added here once details are finalized -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100">
-                    <i class="fas fa-store text-orange-600 text-3xl mb-2"></i>
-                    <p class="text-orange-800 text-sm font-medium">Local Business</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100">
-                    <i class="fas fa-utensils text-purple-600 text-3xl mb-2"></i>
-                    <p class="text-purple-800 text-sm font-medium">Restaurant Partner</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-                    <i class="fas fa-handshake text-gray-600 text-3xl mb-2"></i>
-                    <p class="text-gray-800 text-sm font-medium">Community Partner</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-yellow-50 to-yellow-100">
-                    <i class="fas fa-building text-yellow-600 text-3xl mb-2"></i>
-                    <p class="text-yellow-800 text-sm font-medium">QPRC</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
-                    <i class="fas fa-heart text-green-600 text-3xl mb-2"></i>
-                    <p class="text-green-800 text-sm font-medium">Charity Partner</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
-                    <i class="fas fa-users text-blue-600 text-3xl mb-2"></i>
-                    <p class="text-blue-800 text-sm font-medium">Community Group</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-red-50 to-red-100">
-                    <i class="fas fa-gift text-red-600 text-3xl mb-2"></i>
-                    <p class="text-red-800 text-sm font-medium">Sponsor</p>
-                </div>
-                <div class="magical-card p-8 rounded-2xl text-center h-32 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100">
-                    <i class="fas fa-plus text-indigo-600 text-3xl mb-2"></i>
-                    <p class="text-indigo-800 text-sm font-medium">Join Us!</p>
-                </div>
-            </div>
-
-            <div class="magical-card p-8 rounded-3xl text-center">
-                <h3 class="heading-font text-2xl font-bold mb-4 text-gradient-halloween">Want to Partner With Us?</h3>
-                <p class="text-lg text-gray-700 mb-6">
-                    Join our growing list of community partners and help make this Halloween event unforgettable for families across Bungendore!
-                </p>
-                <a href="tel:0480784317" class="btn-halloween">
-                    <i class="fas fa-handshake mr-2"></i>Partner With Us
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Custom Orders Section -->
-    <section class="halloween-bg py-20 px-6 relative">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="magical-card p-12 rounded-3xl">
-                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6 text-gradient-halloween">
-                    Custom Halloween Creations
-                </h2>
-                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-                    Have a specific vision for your Halloween decor? Kim can bring your spookiest dreams to life with custom-designed pieces tailored to your home and style.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-palette text-orange-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Custom Design</h3>
-                        <p class="text-sm text-gray-600">Personalized decorations to match your theme</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hammer text-purple-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Handcrafted</h3>
-                        <p class="text-sm text-gray-600">Each piece made with attention to detail</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-clock text-gray-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Timely Delivery</h3>
-                        <p class="text-sm text-gray-600">Ready for your Halloween celebrations</p>
-                    </div>
-                </div>
-
-                <a href="tel:0480784317" class="btn-halloween text-lg">
-                    <i class="fas fa-phone mr-2"></i>Call for Custom Orders
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Footer -->
-    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
-        <!-- Background decorations -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="halloween-decoration" style="top: 10%; left: 10%;">🎃</div>
-            <div class="halloween-decoration" style="top: 30%; right: 15%;">🦇</div>
-            <div class="halloween-decoration" style="bottom: 30%; left: 20%;">👻</div>
-            <div class="halloween-decoration" style="bottom: 10%; right: 10%;">🕷️</div>
-        </div>
-        
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden border-t-4 border-orange-500">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <h3 class="heading-font text-2xl font-bold mb-4 text-gradient-halloween">Santa's Secret</h3>
-                    <p class="text-gray-300 mb-6">Creating magical seasonal memories in Bungendore. From spooky Halloween to festive Christmas - where tradition meets imagination.</p>
+                    <p class="text-gray-300 mb-6">Creating spook-tacular Halloween decorations and year-round magic in Bungendore. From frightening fun to festive joy - handcrafted with love.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/SantasSecretBungendore" 
-                           target="_blank"
-                           class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition-colors">
+                        <a href="https://www.facebook.com/SantasSecretBungendore" target="_blank" class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="mailto:info.santasecret@gmail.com" 
-                           class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors">
+                        <a href="mailto:info.santasecret@gmail.com" class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -619,8 +588,8 @@
                         <li><a href="halloween.html" class="text-orange-400 hover:text-orange-300 transition-colors flex items-center">
                             <i class="fas fa-ghost mr-2 text-sm"></i>Halloween
                         </a></li>
-                        <li><a href="wreathes.html" class="text-gray-300 hover:text-white transition-colors flex items-center">
-                            <i class="fas fa-circle-notch mr-2 text-sm"></i>Wreathes
+                        <li><a href="wreaths.html" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-circle-notch mr-2 text-sm"></i>Wreaths
                         </a></li>
                         <li><a href="index.html#visitus" class="text-gray-300 hover:text-white transition-colors flex items-center">
                             <i class="fas fa-map-marker-alt mr-2 text-sm"></i>Visit Us
@@ -636,16 +605,22 @@
                             <span>24b Malbon St, Bungendore NSW</span>
                         </div>
                         <div class="flex items-center text-gray-300">
-                            <i class="fas fa-phone mr-3 text-green-400"></i>
+                            <i class="fas fa-phone mr-3 text-purple-400"></i>
                             <a href="tel:0480784317" class="hover:text-white transition-colors">0480 784 317</a>
                         </div>
                         <div class="flex items-center text-gray-300">
-                            <i class="fas fa-envelope mr-3 text-purple-400"></i>
+                            <i class="fas fa-envelope mr-3 text-orange-400"></i>
                             <a href="mailto:info.santasecret@gmail.com" class="hover:text-white transition-colors">info.santasecret@gmail.com</a>
                         </div>
-                        <div class="mt-4 p-3 bg-gray-800 rounded-lg">
+                        <div class="mt-4 p-3 bg-gray-800 rounded-lg border border-orange-500">
                             <p class="text-sm text-gray-400 mb-2">Store Hours:</p>
                             <p class="text-sm text-gray-300">Fri: 10am-2pm | Sat: 10am-3pm | Sun: 10am-2pm</p>
+                        </div>
+                        <div class="mt-4 p-3 bg-orange-900 rounded-lg border border-orange-500">
+                            <p class="text-sm text-orange-200 mb-2">
+                                <i class="fas fa-ghost mr-2"></i>Halloween Special:
+                            </p>
+                            <p class="text-sm text-white font-semibold">Friday, Oct 31st - Trick or Treat!</p>
                         </div>
                     </div>
                 </div>
@@ -653,52 +628,89 @@
 
             <div class="border-t border-gray-700 mt-12 pt-8 text-center">
                 <div class="flex flex-col md:flex-row justify-between items-center text-gray-400">
-                    <p>&copy; 2024 Santa's Secret. All rights reserved. Made with ❤️ in Bungendore.</p>
+                    <p>&copy; 2024 Santa's Secret. All rights reserved. Made with love (and a little spookiness) in Bungendore.</p>
                     <div class="mt-4 md:mt-0">
-                        <a href="https://codepluscanvas.com" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:text-white text-2xl font-light" title="Created with Code+Canvas">+</a>
+                        <a href="https://codepluscanvas.com" target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" title="Created with Code+Canvas">
+                            <span class="text-white">code</span><span class="text-orange-400">+</span><span class="text-white">canvas</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div class="text-center mt-4">
+                <p id="lightbox-caption" class="text-white text-lg"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Mobile menu toggle function
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
         }
 
-        // Smooth scrolling for navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImage.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
 
-            // Add scroll-based navigation background
-            window.addEventListener('scroll', function() {
-                const nav = document.querySelector('nav');
-                if (window.scrollY > 100) {
-                    nav.classList.add('shadow-lg');
-                } else {
-                    nav.classList.remove('shadow-lg');
-                }
-            });
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Add some spooky interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add random floating ghost emojis
+            function createFloatingGhost() {
+                const ghost = document.createElement('div');
+                ghost.innerHTML = '👻';
+                ghost.style.position = 'fixed';
+                ghost.style.fontSize = '24px';
+                ghost.style.pointerEvents = 'none';
+                ghost.style.zIndex = '1';
+                ghost.style.opacity = '0.3';
+                ghost.style.left = Math.random() * window.innerWidth + 'px';
+                ghost.style.top = window.innerHeight + 'px';
+                
+                document.body.appendChild(ghost);
+                
+                const animation = ghost.animate([
+                    { transform: 'translateY(0px) rotate(0deg)', opacity: 0.3 },
+                    { transform: 'translateY(-' + (window.innerHeight + 100) + 'px) rotate(360deg)', opacity: 0 }
+                ], {
+                    duration: 8000 + Math.random() * 4000,
+                    easing: 'linear'
+                });
+                
+                animation.addEventListener('finish', () => {
+                    ghost.remove();
+                });
+            }
+            
+            // Create a floating ghost every 10-15 seconds
+            setInterval(createFloatingGhost, 10000 + Math.random() * 5000);
         });
     </script>
 </body>
