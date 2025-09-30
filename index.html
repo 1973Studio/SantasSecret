@@ -1008,51 +1008,64 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 <!-- Enhanced Store Information and Signup -->
                 <div class="flex flex-col lg:flex-row gap-8 w-full">
-                    
-                    <div class="magical-card p-8 rounded-3xl flex-1" aria-labelledby="hours-heading">
-  <h3 id="hours-heading" class="heading-font text-2xl font-bold mb-6 text-red-600">Opening Hours</h3>
+                    <div class="magical-card p-8 rounded-3xl flex-1">
+                        <h3 class="heading-font text-2xl font-bold mb-8 text-red-600">Opening Hours</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-red-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 mb-1">Address</p>
+                                    <p class="text-gray-700">24b Malbon Street</p>
+                                    <p class="text-gray-700">Bungendore, NSW 2621</p>
+                                </div>
+                            </div>
 
-  <div class="flex items-center gap-4">
-    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-      <i class="fas fa-clock text-green-600 text-xl" aria-hidden="true"></i>
-    </div>
-    <p class="text-gray-800 font-medium">
-      Thu – Sun: <span class="font-normal">10:00 am – 3:00 pm</span>
-    </p>
-  </div>
-</div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 mb-2">Opening Hours</p>
+                                    <div class="grid grid-cols-2 gap-x-8 gap-y-1">
+                                        <span class="font-medium">Thursday:</span>
+                                        <span>10 am–3 pm</span>
 
-                    <div class="magical-card p-8 rounded-3xl flex-1" aria-labelledby="hours-heading">
-  <h3 id="hours-heading" class="heading-font text-2xl font-bold mb-8 text-red-600">Opening Hours</h3>
+                                        <span class="font-medium">Friday:</span>
+                                        <span>10 am–3 pm</span>
 
-  <div class="mt-2 flex items-start gap-4">
-    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-      <i class="fas fa-clock text-green-600 text-xl" aria-hidden="true"></i>
-    </div>
+                                        <span class="font-medium">Saturday:</span>
+                                        <span>10 am–3 pm</span>
 
-    <div>
-      <p class="font-semibold text-gray-900">Open Thu–Sun</p>
+                                        <span class="font-medium">Sunday:</span>
+                                        <span>10 am–3 pm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      <dl class="mt-3 grid grid-cols-[auto,1fr] gap-y-1.5 gap-x-8 text-gray-800">
-        <dt class="font-medium">Thursday</dt>
-        <dd><time datetime="10:00">10:00 am</time> – <time datetime="15:00">3:00 pm</time></dd>
-
-        <dt class="font-medium">Friday</dt>
-        <dd><time datetime="10:00">10:00 am</time> – <time datetime="15:00">3:00 pm</time></dd>
-
-        <dt class="font-medium">Saturday</dt>
-        <dd><time datetime="10:00">10:00 am</time> – <time datetime="15:00">3:00 pm</time></dd>
-
-        <dt class="font-medium">Sunday</dt>
-        <dd><time datetime="10:00">10:00 am</time> – <time datetime="15:00">3:00 pm</time></dd>
-      </dl>
-
-      <!-- Optional helper text; remove if not desired -->
-      <!-- <p class="mt-3 text-sm text-gray-500">Closed Monday–Wednesday</p> -->
-    </div>
-  </div>
-</div>
-
+                    <div class="magical-card p-8 rounded-3xl flex-1">
+                        <h3 class="heading-font text-2xl font-bold mb-4 text-red-600">Stay in the Magic</h3>
+                        <p class="text-gray-700 mb-6">Sign up to receive festive updates, workshop news, and seasonal surprises straight from Santa's Secret.</p>
+                        <form name="contact" netlify class="space-y-4">
+                            <p>
+                                <label class="block text-sm font-medium text-gray-900">Name
+                                    <input type="text" name="name" class="mt-2 w-full rounded-2xl border border-red-100 bg-white px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                                </label>
+                            </p>
+                            <p>
+                                <label class="block text-sm font-medium text-gray-900">Email
+                                    <input type="email" name="email" class="mt-2 w-full rounded-2xl border border-red-100 bg-white px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                                </label>
+                            </p>
+                            <p>
+                                <button type="submit" class="btn-christmas inline-flex items-center justify-center w-full">Send</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
 
                 <!-- Enhanced Map Section -->
                 <div class="magical-card p-8 rounded-3xl">
