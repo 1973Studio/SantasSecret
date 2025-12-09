@@ -85,7 +85,7 @@
     <nav class="nav-glass sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#home" class="w-14 h-14 flex items-center justify-center transform hover:scale-110 transition-transform">
+                <a href="#home" class="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center transform hover:scale-110 transition-transform">
                     <img src="https://santasecret.com.au/SantaLogo_whitebg.webp" alt="Santa's Secret Logo" class="w-full h-full object-contain">
                 </a>
                 
@@ -433,13 +433,18 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 Santa's Secret. Made with ❤️ in Bungendore.</p>
+                <p>
+                    © 2025 Santa's Secret. Made with ❤️ in Bungendore.
+                    <span class="md:ml-2 block md:inline mt-2 md:mt-0">
+                        website by <a href="https://www.3ls.io" target="_blank" rel="noopener" class="text-red-400 hover:text-red-300 transition-colors font-bold">3LS</a>
+                    </span>
+                </p>
             </div>
         </div>
     </footer>
 
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
-        <button class="absolute top-6 right-6 text-white/70 hover:text-white text-5xl transition-colors focus:outline-none">&times;</button>
+        <button class="absolute top-6 right-6 text-white/70 hover:text-white text-5xl transition-colors focus:outline-none">×</button>
         <img id="lightbox-img" src="" alt="Full screen view" class="max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 border-4 border-white">
         <p class="absolute bottom-6 left-0 right-0 text-center text-white/80 text-sm">Click anywhere to close</p>
     </div>
