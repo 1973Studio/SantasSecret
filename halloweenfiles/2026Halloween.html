@@ -776,6 +776,21 @@
     .hero-bg { animation: none; }
     * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
+
+  /* oo.studio credit */
+  a.oo-credit { display: inline-flex; align-items: center; gap: 8px;
+    font: 600 12px/1 system-ui, sans-serif; color: var(--cream-dim);
+    text-decoration: none; transition: color .3s; }
+  a.oo-credit:hover { color: var(--gold); }
+  .oo-credit path { fill: none; stroke: currentColor;
+    stroke-width: 1.6; stroke-linecap: round; }
+  .oo-loop { opacity: .35; }
+  .oo-light { stroke-dasharray: 25 75; stroke-dashoffset: 0;
+    animation: oo-trace 2.4s linear infinite; }
+  @keyframes oo-trace { to { stroke-dashoffset: -100; } }
+  @media (prefers-reduced-motion: reduce) {
+    .oo-light { animation: none; opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -1009,8 +1024,17 @@
   <div class="footer-key">Hosted by Santa's Secret</div>
   <div class="footer-banner">Bungendore</div>
   <div class="footer-meta">
-    © 2026 Santa's Secret · Made with ❤️ in Bungendore<br>
-    Website by <a href="https://jaybergmann.com">Jay</a>
+    © 2026 Santa's Secret · Made with ❤️ in Bungendore
+  </div>
+  <div style="margin-top: 1.2rem;">
+    <a href="https://oo.studio" target="_blank" rel="noopener" class="oo-credit">
+      <span>website by</span>
+      <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+        <path class="oo-loop" pathLength="100" d="M8 12 C8 7.5, 14.5 7.5, 18 12 C21.5 16.5, 28 16.5, 28 12 C28 7.5, 21.5 7.5, 18 12 C14.5 16.5, 8 16.5, 8 12 Z"/>
+        <path class="oo-light" pathLength="100" d="M8 12 C8 7.5, 14.5 7.5, 18 12 C21.5 16.5, 28 16.5, 28 12 C28 7.5, 21.5 7.5, 18 12 C14.5 16.5, 8 16.5, 8 12 Z"/>
+      </svg>
+      <strong>oo.studio</strong>
+    </a>
   </div>
 </footer>
 
