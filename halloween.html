@@ -57,7 +57,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- Preload the hero image so the page paints atmospherically from the first frame -->
-<link rel="preload" as="image" href="https://santasecret.com.au/images/halloween/limousine.jpg">
+<link rel="preload" as="image" href="images/halloween/limousine.jpg">
 
 <style>
   :root {
@@ -197,7 +197,7 @@
     position: absolute;
     inset: 0;
     z-index: -2;
-    background-image: url('https://santasecret.com.au/images/halloween/limousine.jpg');
+    background-image: url('images/halloween/limousine.jpg');
     background-size: cover;
     background-position: center 40%;
     background-color: #0a0606;
@@ -257,40 +257,64 @@
 
   .headline {
     font-family: 'Playfair Display', serif;
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.8rem;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.6rem;
   }
   .headline .normal-is {
-    display: block;
+    display: inline;
     font-weight: 700;
-    font-size: clamp(3rem, 9vw, 7rem);
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
     color: var(--cream);
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
     opacity: 0;
     animation: rise 1s ease-out 0.4s forwards;
   }
   .headline .overrated {
-    display: block;
+    display: inline;
     font-weight: 900;
     font-style: italic;
-    font-size: clamp(3.5rem, 11vw, 8.5rem);
-    color: var(--blood);
+    font-size: clamp(1.7rem, 4vw, 2.7rem);
+    color: var(--blood-bright);
     text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), 0 0 40px rgba(168, 32, 26, 0.3);
-    margin-top: -0.05em;
+    margin-left: 0.15em;
+    opacity: 0;
+    animation: rise 1s ease-out 0.4s forwards;
+  }
+
+  /* The big dramatic statement — Cinzel, 32–40px mobile up to 64px desktop */
+  .statement {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5.2vw, 4rem);
+    line-height: 1.12;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1.6rem;
+    max-width: 17ch;
     opacity: 0;
     animation: rise 1s ease-out 0.6s forwards;
+  }
+  .statement em {
+    font-style: normal;
+    color: var(--blood-bright);
   }
 
   .tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(1.4rem, 2.8vw, 2rem);
-    color: var(--gold-bright);
+    font-weight: 500;
+    font-size: clamp(1.375rem, 2.3vw, 1.75rem);
+    line-height: 1.45;
+    letter-spacing: 0.045em;
+    color: var(--cream-dim);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     opacity: 0;
     animation: rise 1s ease-out 0.8s forwards;
+  }
+  .tagline strong {
+    font-weight: 600;
+    color: var(--gold-bright);
   }
 
   .hero-ornament {
@@ -797,8 +821,8 @@
 
 <!-- Top bar -->
 <nav class="topbar">
-  <a href="https://santasecret.com.au" class="brand">Santa's Secret</a>
-  <a href="https://santasecret.com.au">← Back to home</a>
+  <a href="/" class="brand">Santa's Secret</a>
+  <a href="/">← Back to home</a>
 </nav>
 
 <!-- HERO -->
@@ -810,12 +834,14 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Halloween in Bungendore</div>
 
-    <h1 class="headline">
+    <p class="headline">
       <span class="normal-is">Normal Is</span>
       <span class="overrated">Overrated</span>
-    </h1>
+    </p>
 
-    <p class="tagline">A spooky stroll through the heart of Bungendore.</p>
+    <h1 class="statement">A Delightfully <em>Dreadful</em> Evening</h1>
+
+    <p class="tagline">Step inside a vintage<br><strong>1934 Packard Limousine</strong><br>for a complimentary family photo experience</p>
 
     <div class="hero-ornament" aria-hidden="true">
       <svg viewBox="0 0 280 28" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
@@ -898,7 +924,7 @@
           <div class="category-title">Trick-or-Treat
             <span class="category-title-accent">The District</span>
           </div>
-          <p class="category-body">Wander through the local business district collecting treats from participating shops. A spooky stroll through the heart of Bungendore.</p>
+          <p class="category-body">Wander through the local business district collecting treats from participating shops, as the heart of Bungendore turns wonderfully dark for one evening.</p>
         </article>
 
         <article class="category-card">
@@ -967,7 +993,7 @@
       </svg>
     </div>
 
-    <a href="https://santasecret.com.au/shop/" class="btn btn-ghost">Visit the Shop →</a>
+    <a href="/shop.html" class="btn btn-ghost">Visit the Shop →</a>
   </div>
 </section>
 
@@ -1013,7 +1039,7 @@
     <a href="https://www.instagram.com/santassecretbungendore" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="0.8" fill="currentColor"/></svg>
     </a>
-    <a href="https://santasecret.com.au" class="social-link" aria-label="Website">
+    <a href="/" class="social-link" aria-label="Website">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
     </a>
   </div>
