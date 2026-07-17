@@ -100,44 +100,44 @@
 </head>
 <body>
 <nav id="mainNav">
-    <a href="/" class="logo"><img src="https://santasecret.com.au/SantaLogo.png" alt="Santa's Secret"></a>
+    <a href="index.html" class="logo"><img src="https://santasecret.com.au/SantaLogo.png" alt="Santa's Secret"></a>
     <button id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div id="menuOverlay" onclick="closeMenu()"></div>
 <div id="mobileMenu">
-    <a href="/"          onclick="closeMenu()">Home</a>
-    <a href="/#bespoke"  onclick="closeMenu()">Our Story</a>
-    <a href="/#about"    onclick="closeMenu()">Meet Kim</a>
-    <a href="/#gallery"  onclick="closeMenu()">Gallery</a>
-    <a href="/wreaths.html" onclick="closeMenu()">Wreaths</a>
-    <a href="/halloween.html" onclick="closeMenu()">Halloween 🎃</a>
-    <a href="/shop.html" class="active" onclick="closeMenu()">Shop 🛍️</a>
-    <a href="/#visitus"  onclick="closeMenu()">Visit Us ↗</a>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="index.html#bespoke"  onclick="closeMenu()">Our Story</a>
+    <a href="index.html#about"    onclick="closeMenu()">Meet Kim</a>
+    <a href="index.html#gallery"  onclick="closeMenu()">Gallery</a>
+    <a href="wreaths.html" onclick="closeMenu()">Wreaths</a>
+    <a href="halloween.html" onclick="closeMenu()">Halloween 🎃</a>
+    <a href="shop.html" class="active" onclick="closeMenu()">Shop 🛍️</a>
+    <a href="index.html#visitus"  onclick="closeMenu()">Visit Us ↗</a>
 </div>
 <section id="hero">
     <div class="hero-content">
-        <div class="hero-eyebrow">Bungendore, NSW</div>
+        <div class="hero-eyebrow" data-edit="hero.eyebrow">Bungendore, NSW</div>
         <h1 class="hero-title display">Our Online Shop is<br><em>Coming Soon</em></h1>
         <p class="hero-sub">Kim's handcrafted decorations and bespoke gifts,<br>soon available to order from anywhere in Australia.</p>
     </div>
 </section>
 <section id="comingsoon">
     <div class="cs-inner">
-        <div class="section-label" style="justify-content:center">Something Special Is Brewing</div>
+        <div class="section-label" style="justify-content:center" data-edit="coming.label">Something Special Is Brewing</div>
         <h2 class="display">The Workshop, <em>Delivered</em></h2>
-        <p>We're putting the finishing touches on our online store. Soon you'll be able to browse the same handcrafted pieces you'd find on our shelves in Bungendore — and have them delivered to your door.</p>
+        <p data-edit="coming.lede">We're putting the finishing touches on our online store. Soon you'll be able to browse the same handcrafted pieces you'd find on our shelves in Bungendore — and have them delivered to your door.</p>
         <div class="cs-features">
-            <div class="cs-feature"><i class="fas fa-hand-holding-heart"></i><h3 class="display">Handcrafted by Kim</h3><p>Every piece made or personally curated in the Bungendore workshop.</p></div>
-            <div class="cs-feature"><i class="fas fa-store"></i><h3 class="display">Same Stock as In-Store</h3><p>What you see online is exactly what's on the shelf in the shop.</p></div>
-            <div class="cs-feature"><i class="fas fa-box"></i><h3 class="display">Australia-Wide Shipping</h3><p>Carefully packed and sent anywhere in the country.</p></div>
+            <div class="cs-feature"><i class="fas fa-hand-holding-heart"></i><h3 class="display" data-edit="coming.f1.title">Handcrafted by Kim</h3><p data-edit="coming.f1.desc">Every piece made or personally curated in the Bungendore workshop.</p></div>
+            <div class="cs-feature"><i class="fas fa-store"></i><h3 class="display" data-edit="coming.f2.title">Same Stock as In-Store</h3><p data-edit="coming.f2.desc">What you see online is exactly what's on the shelf in the shop.</p></div>
+            <div class="cs-feature"><i class="fas fa-box"></i><h3 class="display" data-edit="coming.f3.title">Australia-Wide Shipping</h3><p data-edit="coming.f3.desc">Carefully packed and sent anywhere in the country.</p></div>
         </div>
         <div class="cs-card">
-            <h3 class="display">Can't wait? Neither can we!</h3>
+            <h3 class="display" data-edit="coming.cardTitle">Can't wait? Neither can we!</h3>
             <p>In the meantime, visit us in-store at 24b Malbon St, Bungendore, or give Kim a call on <a href="tel:+61480784317">0480 784 317</a> to place an order.</p>
         </div>
         <div class="cs-btns">
-            <a href="/#visitus" class="btn-primary"><i class="fas fa-store" style="margin-right:8px"></i>Visit Our Workshop</a>
-            <a href="/" class="btn-ghost"><i class="fas fa-gift" style="margin-right:8px"></i>Explore Our Magic</a>
+            <a href="index.html#visitus" class="btn-primary"><i class="fas fa-store" style="margin-right:8px"></i>Visit Our Workshop</a>
+            <a href="index.html" class="btn-ghost"><i class="fas fa-gift" style="margin-right:8px"></i>Explore Our Magic</a>
         </div>
     </div>
 </section>
@@ -154,13 +154,13 @@
         <div class="footer-col">
             <h4>Navigate</h4>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/#bespoke">Our Story</a></li>
-                <li><a href="/#about">About Kim</a></li>
-                <li><a href="/#gallery">Gallery</a></li>
-                <li><a href="/wreaths.html">Wreaths</a></li>
-                <li><a href="/halloween.html">Halloween</a></li>
-                <li><a href="/shop.html" class="active">Shop</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#bespoke">Our Story</a></li>
+                <li><a href="index.html#about">About Kim</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="wreaths.html">Wreaths</a></li>
+                <li><a href="halloween.html">Halloween</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -194,5 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
     (function(){ var u="info.santasecret",d="gmail.com",e=u+"@"+d; document.querySelectorAll(".js-email").forEach(function(a){a.href="mailto:"+e;}); document.querySelectorAll(".js-email-text").forEach(function(a){a.href="mailto:"+e;a.textContent=e;}); })();
 });
 </script>
+<script src="content.js" data-content="content-shop.json"></script>
 </body>
 </html>

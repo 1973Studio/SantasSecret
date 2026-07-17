@@ -27,7 +27,9 @@
     })
   }
 
-  fetch('content.json', { cache: 'no-store' })
+  var src = (document.currentScript && document.currentScript.dataset &&
+             document.currentScript.dataset.content) || 'content.json'
+  fetch(src, { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : null })
     .then(apply)
     .catch(function () { /* keep the baked-in copy if content.json is missing */ })

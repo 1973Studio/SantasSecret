@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "eyebrow": "Bungendore, NSW"
+  },
+  "coming": {
+    "label": "Something Special Is Brewing",
+    "lede": "We're putting the finishing touches on our online store. Soon you'll be able to browse the same handcrafted pieces you'd find on our shelves in Bungendore — and have them delivered to your door.",
+    "f1": {
+      "title": "Handcrafted by Kim",
+      "desc": "Every piece made or personally curated in the Bungendore workshop."
+    },
+    "f2": {
+      "title": "Same Stock as In-Store",
+      "desc": "What you see online is exactly what's on the shelf in the shop."
+    },
+    "f3": {
+      "title": "Australia-Wide Shipping",
+      "desc": "Carefully packed and sent anywhere in the country."
+    },
+    "cardTitle": "Can't wait? Neither can we!"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "pages": [
+    { "label": "Home",      "file": "index.html", "content": "content.json" },
+    { "label": "Shop",      "file": "shop.html",  "content": "content-shop.json" },
+    { "label": "Wreaths",   "file": "wreaths.html" },
+    { "label": "Halloween", "file": "halloween.html" }
+  ]
+}
