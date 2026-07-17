@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "eyebrow": "Bungendore, NSW"
+  },
+  "bespoke": {
+    "label": "Handcrafted with Love",
+    "p1": "Transform your home with one-of-a-kind Christmas and Easter decorations designed to make this holiday season truly unforgettable.",
+    "p2": "At Santa's Secret, we create and sell handcrafted ornaments, custom Christmas trees, and decor pieces that blend tradition with a touch of modern flair.",
+    "f1": {
+      "title": "Artisan Craft",
+      "desc": "Recycled & new materials, made by hand."
+    },
+    "f2": {
+      "title": "Custom Orders",
+      "desc": "Bespoke trees and personalised ornaments."
+    },
+    "f3": {
+      "title": "Heirloom Quality",
+      "desc": "Pieces to cherish for generations."
+    },
+    "f4": {
+      "title": "Unconventional",
+      "desc": "Bold, whimsical — unlike anything else."
+    },
+    "photoLabel": "Bungendore, NSW"
+  },
+  "about": {
+    "label": "A Message from the Workshop",
+    "quote1": "\"At Santa's Secret, we believe the holidays should be as unique as you are. From upcycled trees to oversized, handcrafted ornaments, our collection transforms tradition into something extraordinary.\"",
+    "quote2": "\"Step into a world where Christmas is reimagined — bold, beautiful, and waiting to be discovered.",
+    "sig": "Kim, Owner & Artisan"
+  },
+  "countdown": {
+    "label": "The Magic is Coming",
+    "title": "Christmas Countdown",
+    "lede": "Count down the moments until the big day!",
+    "cardTitle": "Counting down to Christmas 🎄"
+  },
+  "gallery": {
+    "label": "Our Work",
+    "hint": "Click any image to see the magic up close ✨"
+  },
+  "visit": {
+    "label": "Come Find Us",
+    "title": "Visit Our Workshop",
+    "lede": "Come say hello in Bungendore",
+    "address": "24b Malbon St, Bungendore NSW 2621",
+    "hoursDays": "Thursday – Sunday",
+    "hoursTimes": "10:00 am – 3:00 pm",
+    "hoursNote": "Hours may differ on public holidays",
+    "formTitle": "Join the Nice List",
+    "formLede": "Get updates, workshop news, and magical surprises straight to your inbox.",
+    "formNote": "We promise no coal, only good news!"
+  },
+  "footer": {
+    "blurb": "Creating magical Christmas memories in Bungendore. Where tradition meets imagination."
+  }
+}
