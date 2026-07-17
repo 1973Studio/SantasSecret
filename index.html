@@ -10,7 +10,7 @@
     <meta property="og:title" content="Santa's Secret - Bungendore's Magical Christmas Shop">
     <meta property="og:description" content="Discover bespoke decorations and holiday magic in Bungendore.">
     <meta property="og:image" content="https://santasecret.com.au/ss3.webp">
-    <link rel="icon" type="image/png" href="/boxicon.ico">
+    <link rel="icon" type="image/png" href="boxicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -225,14 +225,14 @@
     <a href="#bespoke"        onclick="closeMenu()">Our Story</a>
     <a href="#about"          onclick="closeMenu()">Meet Kim</a>
     <a href="#gallery"        onclick="closeMenu()">Gallery</a>
-    <a href="/wreaths.html"    onclick="closeMenu()">Wreaths</a>
-    <a href="/halloween.html"  onclick="closeMenu()">Halloween 🎃</a>
-    <a href="/shop.html"       onclick="closeMenu()">Shop 🛍️</a>
+    <a href="wreaths.html"    onclick="closeMenu()">Wreaths</a>
+    <a href="halloween.html"  onclick="closeMenu()">Halloween 🎃</a>
+    <a href="shop.html"       onclick="closeMenu()">Shop 🛍️</a>
     <a href="#visitus" class="visit-us" onclick="closeMenu()">Visit Us ↗</a>
 </div>
 <section id="home">
     <div class="hero-content">
-        <div class="hero-eyebrow">Bungendore, NSW</div>
+        <div class="hero-eyebrow" data-edit="hero.eyebrow">Bungendore, NSW</div>
         <h1 class="hero-title display">Discover the Secrets<br>to an <em>Unconventional</em><br>Christmas</h1>
         <p class="hero-sub">Bespoke decorations and handcrafted gifts, made with love<br>in the heart of Bungendore ❤️</p>
         <div class="hero-btns">
@@ -245,50 +245,50 @@
 <section id="bespoke">
     <div class="bespoke-inner">
         <div class="bespoke-text">
-            <div class="section-label">Handcrafted with Love</div>
+            <div class="section-label" data-edit="bespoke.label">Handcrafted with Love</div>
             <h2 class="display">The Art of<br><em>Bespoke Decor</em></h2>
             <svg class="ink-underline" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 9 C30 3, 60 11, 90 7 C120 3, 150 10, 178 6" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7"/>
                 <path d="M10 11 C40 6, 70 10, 100 8 C130 6, 155 9, 175 7" stroke="#c8973a" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.4"/>
             </svg>
-            <p>Transform your home with one-of-a-kind Christmas and Easter decorations designed to make this holiday season truly unforgettable.</p>
-            <p>At Santa's Secret, we create and sell handcrafted ornaments, custom Christmas trees, and decor pieces that blend tradition with a touch of modern flair.</p>
+            <p data-edit="bespoke.p1">Transform your home with one-of-a-kind Christmas and Easter decorations designed to make this holiday season truly unforgettable.</p>
+            <p data-edit="bespoke.p2">At Santa's Secret, we create and sell handcrafted ornaments, custom Christmas trees, and decor pieces that blend tradition with a touch of modern flair.</p>
             <ul class="feature-list">
-                <li><div class="feature-icon" style="background:#fef2f2"><i class="fas fa-magic" style="color:var(--red)"></i></div><div><strong>Artisan Craft</strong><span>Recycled &amp; new materials, made by hand.</span></div></li>
-                <li><div class="feature-icon" style="background:#f0fdf4"><i class="fas fa-palette" style="color:#059669"></i></div><div><strong>Custom Orders</strong><span>Bespoke trees and personalised ornaments.</span></div></li>
-                <li><div class="feature-icon" style="background:#fffbeb"><i class="fas fa-gem" style="color:var(--gold)"></i></div><div><strong>Heirloom Quality</strong><span>Pieces to cherish for generations.</span></div></li>
-                <li><div class="feature-icon" style="background:#eff6ff"><i class="fas fa-fingerprint" style="color:#3b82f6"></i></div><div><strong>Unconventional</strong><span>Bold, whimsical — unlike anything else.</span></div></li>
+                <li><div class="feature-icon" style="background:#fef2f2"><i class="fas fa-magic" style="color:var(--red)"></i></div><div><strong data-edit="bespoke.f1.title">Artisan Craft</strong><span data-edit="bespoke.f1.desc">Recycled &amp; new materials, made by hand.</span></div></li>
+                <li><div class="feature-icon" style="background:#f0fdf4"><i class="fas fa-palette" style="color:#059669"></i></div><div><strong data-edit="bespoke.f2.title">Custom Orders</strong><span data-edit="bespoke.f2.desc">Bespoke trees and personalised ornaments.</span></div></li>
+                <li><div class="feature-icon" style="background:#fffbeb"><i class="fas fa-gem" style="color:var(--gold)"></i></div><div><strong data-edit="bespoke.f3.title">Heirloom Quality</strong><span data-edit="bespoke.f3.desc">Pieces to cherish for generations.</span></div></li>
+                <li><div class="feature-icon" style="background:#eff6ff"><i class="fas fa-fingerprint" style="color:#3b82f6"></i></div><div><strong data-edit="bespoke.f4.title">Unconventional</strong><span data-edit="bespoke.f4.desc">Bold, whimsical — unlike anything else.</span></div></li>
             </ul>
         </div>
         <div class="photo-stack">
             <img class="photo-a" src="images/santas_shop.jpg" alt="Santa's Secret Shop Front, Bungendore">
-            <div class="photo-label">Bungendore, NSW</div>
+            <div class="photo-label" data-edit="bespoke.photoLabel">Bungendore, NSW</div>
         </div>
     </div>
 </section>
 <section id="about">
     <div class="about-inner">
         <div class="kim-portrait">
-            <img src="/meetKim.png" alt="Meet Kim">
+            <img src="meetKim.png" alt="Meet Kim">
             <div class="heart"><i class="fas fa-heart"></i></div>
         </div>
         <div class="about-text">
-            <div class="section-label">A Message from the Workshop</div>
+            <div class="section-label" data-edit="about.label">A Message from the Workshop</div>
             <h2 class="display">Where Christmas<br>is Reimagined</h2>
-            <blockquote>"At Santa's Secret, we believe the holidays should be as unique as you are. From upcycled trees to oversized, handcrafted ornaments, our collection transforms tradition into something extraordinary."</blockquote>
-            <blockquote>"Step into a world where Christmas is reimagined — bold, beautiful, and waiting to be discovered.</blockquote>
-            <div class="kim-sig"><div class="line"></div><span>Kim, Owner &amp; Artisan</span></div>
+            <blockquote data-edit="about.quote1">"At Santa's Secret, we believe the holidays should be as unique as you are. From upcycled trees to oversized, handcrafted ornaments, our collection transforms tradition into something extraordinary."</blockquote>
+            <blockquote data-edit="about.quote2">"Step into a world where Christmas is reimagined — bold, beautiful, and waiting to be discovered.</blockquote>
+            <div class="kim-sig"><div class="line"></div><span data-edit="about.sig">Kim, Owner &amp; Artisan</span></div>
         </div>
     </div>
 </section>
 <section id="countdown">
     <div class="countdown-inner">
-        <div class="section-label" style="justify-content:center;margin:0 auto 16px">The Magic is Coming</div>
-        <h2 class="display">Christmas Countdown</h2>
-        <p>Count down the moments until the big day!</p>
+        <div class="section-label" style="justify-content:center;margin:0 auto 16px" data-edit="countdown.label">The Magic is Coming</div>
+        <h2 class="display" data-edit="countdown.title">Christmas Countdown</h2>
+        <p data-edit="countdown.lede">Count down the moments until the big day!</p>
         <div class="countdown-card">
             <div class="countdown-date-row">
-                <h3 class="display">Counting down to Christmas 🎄</h3>
+                <h3 class="display" data-edit="countdown.cardTitle">Counting down to Christmas 🎄</h3>
                 <div class="date-controls">
                     <input type="date" id="startDate">
                     <button id="resetBtn"><i class="fas fa-undo" style="margin-right:6px"></i>Reset</button>
@@ -309,32 +309,32 @@
     <div class="gallery-inner">
         <div class="gallery-header">
             <div>
-                <div class="section-label">Our Work</div>
+                <div class="section-label" data-edit="gallery.label">Our Work</div>
                 <h2 class="display">Christmas<br>Gallery</h2>
             </div>
         </div>
-        <p style="color:var(--warm-mid);margin-bottom:36px;font-size:.9rem">Click any image to see the magic up close ✨</p>
+        <p style="color:var(--warm-mid);margin-bottom:36px;font-size:.9rem" data-edit="gallery.hint">Click any image to see the magic up close ✨</p>
         <div class="gallery-grid">
-            <figure class="g-tile wide"><img src="/photo2.jpg"  alt="Inside the Santa's Secret workshop, filled with colourful decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo1.jpg"  alt="Designer Christmas tree in blue and gold" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo4.jpg"  alt="Handcrafted Christmas decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo5.jpg"  alt="Bespoke Christmas decor display" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile wide"><img src="/photo3.jpg"  alt="Christmas displays in the Bungendore workshop" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo6.jpg"  alt="Festive decorations and ornaments" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo7.jpg"  alt="Handmade Christmas ornaments" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo10.jpg" alt="Christmas tree decorating inspiration" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile wide"><img src="/photo8.jpg"  alt="Seasonal displays at Santa's Secret" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile wide"><img src="/photo9.jpg"  alt="Christmas wonderland displays" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo11.jpg" alt="Whimsical Christmas decor" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
-            <figure class="g-tile"><img src="/photo12.jpg" alt="Magical Christmas decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile wide"><img src="photo2.jpg"  alt="Inside the Santa's Secret workshop, filled with colourful decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo1.jpg"  alt="Designer Christmas tree in blue and gold" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo4.jpg"  alt="Handcrafted Christmas decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo5.jpg"  alt="Bespoke Christmas decor display" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile wide"><img src="photo3.jpg"  alt="Christmas displays in the Bungendore workshop" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo6.jpg"  alt="Festive decorations and ornaments" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo7.jpg"  alt="Handmade Christmas ornaments" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo10.jpg" alt="Christmas tree decorating inspiration" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile wide"><img src="photo8.jpg"  alt="Seasonal displays at Santa's Secret" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile wide"><img src="photo9.jpg"  alt="Christmas wonderland displays" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo11.jpg" alt="Whimsical Christmas decor" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
+            <figure class="g-tile"><img src="photo12.jpg" alt="Magical Christmas decorations" class="gallery-item" loading="lazy"><figcaption class="g-cap"><i class="fas fa-search-plus"></i>See it up close</figcaption></figure>
         </div>
     </div>
 </section>
 <section id="visitus">
     <div class="visitus-inner">
-        <div class="section-label" style="justify-content:center;margin:0 auto 12px">Come Find Us</div>
-        <h2 class="display">Visit Our Workshop</h2>
-        <p>Come say hello in Bungendore</p>
+        <div class="section-label" style="justify-content:center;margin:0 auto 12px" data-edit="visit.label">Come Find Us</div>
+        <h2 class="display" data-edit="visit.title">Visit Our Workshop</h2>
+        <p data-edit="visit.lede">Come say hello in Bungendore</p>
         <div class="visitus-grid">
             <div class="map-card">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.8947298471834!2d149.42688767652457!3d-35.25316317264089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d89c84b7e9b%3A0x504f0b535df2c10!2s24b%20Malbon%20St%2C%20Bungendore%20NSW%202621%2C%20Australia!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Santa's Secret Location"></iframe>
@@ -342,16 +342,16 @@
                     <h3 class="display">Store Details</h3>
                     <div class="detail-row">
                         <div class="detail-icon"><i class="fas fa-location-dot"></i></div>
-                        <div><strong>Address</strong><span>24b Malbon St, Bungendore NSW 2621</span><br><a href="https://www.google.com/maps/dir//24b+Malbon+St,+Bungendore+NSW+2621" target="_blank" style="color:var(--red);font-size:.85rem;font-weight:600">Get Directions →</a></div>
+                        <div><strong>Address</strong><span data-edit="visit.address">24b Malbon St, Bungendore NSW 2621</span><br><a href="https://www.google.com/maps/dir//24b+Malbon+St,+Bungendore+NSW+2621" target="_blank" style="color:var(--red);font-size:.85rem;font-weight:600">Get Directions →</a></div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-icon"><i class="fas fa-clock"></i></div>
                         <div>
                             <strong>Opening Hours</strong>
                             <table style="font-size:.85rem;color:var(--warm-mid);border-collapse:collapse;margin-top:4px">
-                                <tr><td style="padding:2px 12px 2px 0;color:var(--ink);font-weight:500">Thursday – Sunday</td><td>10:00 am – 3:00 pm</td></tr>
+                                <tr><td style="padding:2px 12px 2px 0;color:var(--ink);font-weight:500" data-edit="visit.hoursDays">Thursday – Sunday</td><td data-edit="visit.hoursTimes">10:00 am – 3:00 pm</td></tr>
                             </table>
-                            <span style="font-size:.78rem;color:#aaa;margin-top:6px;display:block">Hours may differ on public holidays</span>
+                            <span style="font-size:.78rem;color:#aaa;margin-top:6px;display:block" data-edit="visit.hoursNote">Hours may differ on public holidays</span>
                         </div>
                     </div>
                     <div class="map-actions">
@@ -363,13 +363,13 @@
             <div class="postcard-card">
                 <div class="postcard-stripe"></div>
                 <div class="postcard-body">
-                    <h3 class="display">Join the Nice List</h3>
-                    <p>Get updates, workshop news, and magical surprises straight to your inbox.</p>
+                    <h3 class="display" data-edit="visit.formTitle">Join the Nice List</h3>
+                    <p data-edit="visit.formLede">Get updates, workshop news, and magical surprises straight to your inbox.</p>
                     <form name="contact" netlify>
                         <div class="form-field"><label>Your Name</label><input type="text" name="name" placeholder="Write your name here…" required></div>
                         <div class="form-field"><label>Your Email</label><input type="email" name="email" placeholder="email@example.com" required></div>
                         <button type="submit" class="form-submit">Send to Santa <i class="fas fa-paper-plane" style="margin-left:8px"></i></button>
-                        <p class="form-note">We promise no coal, only good news!</p>
+                        <p class="form-note" data-edit="visit.formNote">We promise no coal, only good news!</p>
                     </form>
                 </div>
             </div>
@@ -380,7 +380,7 @@
     <div class="footer-inner">
         <div class="footer-brand">
             <h3 class="display">Santa's Secret</h3>
-            <p>Creating magical Christmas memories in Bungendore. Where tradition meets imagination.</p>
+            <p data-edit="footer.blurb">Creating magical Christmas memories in Bungendore. Where tradition meets imagination.</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/SantasSecretBungendore" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="js-email"><i class="fas fa-envelope"></i></a>
@@ -393,9 +393,9 @@
                 <li><a href="#bespoke">Our Story</a></li>
                 <li><a href="#about">About Kim</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="/wreaths.html">Wreaths</a></li>
-                <li><a href="/halloween.html">Halloween</a></li>
-                <li><a href="/shop.html">Shop</a></li>
+                <li><a href="wreaths.html">Wreaths</a></li>
+                <li><a href="halloween.html">Halloween</a></li>
+                <li><a href="shop.html">Shop</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -533,7 +533,9 @@ window.shareOnFacebook = function(){ window.open('https://www.facebook.com/share
 }); // end DOMContentLoaded
 </script>
 
-<script src="/holly.js" defer></script>
+<!-- Content layer: hydrates editable copy from content.json (design stays in code) -->
+<script src="content.js"></script>
+<script src="holly.js" defer></script>
 
 </body>
 </html>
